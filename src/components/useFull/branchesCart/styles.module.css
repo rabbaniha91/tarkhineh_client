@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 288px;
+  height: 344px;
+  border-radius: 8px;
+  margin-top: 24px;
+  margin-bottom: 48px;
+  border: solid 1px var(--neutral-cbcbcb);
+  position: relative;
+  cursor: pointer;
+}
+
+.container img {
+  width: 100%;
+  height: 230px;
+  transition: all 0.3s ease-out;
+}
+
+.container div{
+    width: 100%;
+    height: 230px;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h6 {
+  line-height: 1.8;
+  font-size: var(--h6-desktop);
+  margin-top: 8px;
+}
+
+.container p {
+  color: var(--neutral-717171);
+  line-height: 1.8;
+  font-size: var(--small-desktop);
+  text-align: center;
+  padding: 8px 8px;
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid var(--green-green-shade-9);
+  color: var(--green-green-shade-9);
+  padding: 4px 8px;
+  background-color: transparent;
+  position: absolute;
+  top: 87%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: var(--small-mobile);
+  transition: all 0.3s ease-in;
+}
+
+.container:hover img {
+  height: 190px;
+}
+.container:hover div{
+    opacity: 0.55;
+    height: 190px;
+}
+
+.container:hover button{
+    opacity: 1;
+}
+

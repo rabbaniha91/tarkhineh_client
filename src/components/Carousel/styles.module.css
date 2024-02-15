@@ -1,0 +1,74 @@
+.container {
+  max-width: 1440px;
+  height: 336px;
+  position: relative;
+}
+.container swiper-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.container swiper-container::after {
+  content: url("/public/images/dot_background.svg");
+  display: block;
+  position: absolute;
+  top: 90.5%;
+  right: 47.7%;
+  transform: translateX(50%);
+  width: 100px;
+  height: 40px;
+  z-index: 1;
+}
+
+.container swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.container swiper-container::part(bullet),
+.container swiper-container::part(bullet-active) {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--green-primary);
+  z-index: 9999;
+}
+.container swiper-container::part(bullet) {
+  background-color: var(--green-green-tint-5);
+  opacity: 1;
+}
+
+.container swiper-container::part(button-prev),
+.container swiper-container::part(button-next) {
+  color: var(--green-primary);
+  width: 32px;
+  height: 32px;
+}
+
+.solgun{
+  position: absolute;
+  color: var(--neutral-white);
+  font-weight: bolder;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.solgun span{
+  margin-bottom: 44px;
+}

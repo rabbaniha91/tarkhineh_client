@@ -1,0 +1,71 @@
+@font-face {
+  font-family: tanha;
+  src: url("./assets/fonts/Tanha.woff2");
+}
+
+:root {
+  /* color */
+  --neutral-white: #fff;
+  --neutral-f-9-f-9-f-9: #f9f9f9;
+  --neutral-e-1-e-1-e-1: #f9f9f9;
+  --neutral-ededed: #ededed;
+  --neutral-cbcbcb: #cbcbcb;
+  --neutral-adadad: #adadad;
+  --neutral-757575: #757575;
+  --neutral-717171: #717171;
+  --neutral-353535: #353535;
+  --neutral-black: #0c0c0c;
+  --green-primary: #417f56;
+  --green-green-tint-1: #e5f2e9;
+  --green-green-tint-2: #cae4d3;
+  --green-green-tint-3: #b0d7bd;
+  --green-green-tint-4: #96c9a7;
+  --green-green-tint-5: #7cbc91;
+  --green-green-tint-6: #61ae7b;
+  --green-green-tint-7: #4e9968;
+  --green-green-shade-8: #396f4b;
+  --green-green-shade-9: #315f41;
+  --green-green-shade-10: #294f36;
+  --green-green-shade-11: #21402b;
+  --green-green-shade-12: #183020;
+  --green-green-shade-13: #102016;
+  --green-green-shade-14: #08100b;
+  --state-error-error: #c30000;
+  --state-error-error-light: #ed2e2e;
+  --state-error-error-extralight: #fff2f2;
+  --state-success-success: #00966d;
+  --state-success-success-light: #00ba88;
+  --state-success-success-extralight: #f3fdfa;
+  --state-warning-warning: #a9791c;
+  --state-warning-warning-light: #f4b740;
+  --state-warning-warning-extralight: #fff8e1;
+  /* font size */
+  --h1-desktop: 2.027rem;
+  --h2-desktop: 1.802rem;
+  --h3-desktop: 1.602rem;
+  --h4-desktop: 1.424rem;
+  --h5-desktop: 1.266rem;
+  --h6-desktop: 1.125rem;
+  --p-desktop: 1rem;
+  --small-desktop: 0.889rem;
+  --h1-mobile: 1.476rem;
+  --h2-mobile: 1.383rem;
+  --h3-mobile: 1.296rem;
+  --h4-mobile: 1.215rem;
+  --h5-mobile: 1.138rem;
+  --h6-mobile: 1.067rem;
+  --p-mobile: 1rem;
+  --small-mobile: 0.878rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: tanha, serif;
+}
+
+body {
+  background-color: var(--neutral-white);
+  margin: 0 auto;
+}
