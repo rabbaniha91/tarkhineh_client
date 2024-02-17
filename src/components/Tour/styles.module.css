@@ -4,4 +4,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:1024px) {
+  .container{
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+    row-gap: 48px;
+    column-gap: 48px;
+  }
+}
+
+@media screen and (max-width:560px) {
+  .container{
+    flex-direction: column;
+    row-gap: 0;
+    column-gap: 0;
+  }
 }

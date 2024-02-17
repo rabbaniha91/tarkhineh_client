@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.1),
     0 4px 4px 0 rgba(0, 0, 0, 0.09), 0 9px 5px 0 rgba(0, 0, 0, 0.05),
     0 16px 6px 0 rgba(0, 0, 0, 0.01), 0 25px 7px 0 rgba(0, 0, 0, 0);
@@ -40,4 +40,23 @@
   top: 85%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+
+@media screen and (max-width:430px) {
+  .container{
+    width: 182px;
+    height: 100px;
+    margin-bottom: 132px;
+  }
+
+  .container img{
+    width: 150px;
+    height: 150px;
+    top: -75%;
+  }
+
+  .container p{
+    width: 106px;
+  }
 }

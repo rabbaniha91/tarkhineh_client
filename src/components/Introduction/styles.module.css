@@ -29,6 +29,12 @@
   justify-content: space-between;
   width: 600px;
   gap: 24px;
+  padding: 0 1rem;
+
+}
+
+.right h2{
+  font-size: var(--h2-desktop);
 }
 
 .right p {
@@ -37,13 +43,12 @@
 
 .buttons {
   align-self: flex-end;
-  /* position: absolute; */
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   width: 392px;
   gap: 24px;
@@ -71,11 +76,19 @@
   }
   .content_container{
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
   }
 }
 
-@media screen and(max-width:560px) {
+@media screen and (max-width:560px) {
+
+  .right{
+    width: auto;
+  }
+
+  .right h2{
+    font-size: var(--h2-mobile);
+  }
   .left{
     width: auto;
   }

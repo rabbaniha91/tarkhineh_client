@@ -9,9 +9,11 @@ import { Link } from 'react-router-dom';
 import TextInput from '../useFull/TextInput/TextInput';
 import Buttons from "../useFull/Buttons/Buttons"
 import Error from '../useFull/Error/Error';
+import useScreenSize from '../../hooks/useScreenSize';
 
 
 const Footer = () => {
+  const { isSM } = useScreenSize()
   const persianWordRegex = /[پچجحخهعغفقثصضشسیبلاتنموئدذرزطظ]+/
   const mobileRegex = /^09\d{9}$/
   const validationSchema = Yup.object({
@@ -68,90 +70,92 @@ const Footer = () => {
               <Link className={styles.link}>شعبه ونک</Link>
             </div>
           </div>
-          <div className={styles.left}>
-            <h5>پیام به ترخینه</h5>
-            <form className={styles.form} onSubmit={formik.handleSubmit}>
-              <div className={styles.right_inputs}>
-                <TextInput
-                  placeholder="نام و نام خانوادگی"
-                  width="267px"
-                  name="fullName"
-                  type={"text"}
-                  onChange={formik.handleChange}
-                  onBlue={formik.handleBlur}
-                  value={formik.values.fullName}
-                  error={formik.errors.fullName}
-                  touch={formik.dirty}
-                />
-                {formik.dirty && formik.errors.fullName && (
-                  <Error value={formik.errors.fullName} />
-                )}
-                <TextInput
-                  placeholder="شماره تماس"
-                  width="267px"
-                  name="mobileNumber"
-                  type="phone"
-                  onChange={formik.handleChange}
-                  onBlue={formik.handleBlur}
-                  value={formik.values.mobileNumber}
-                  error={formik.errors.mobileNumber}
-                  touch={formik.dirty}
+          {isSM && (
+            <div className={styles.left}>
+              <h5>پیام به ترخینه</h5>
+              <form className={styles.form} onSubmit={formik.handleSubmit}>
+                <div className={styles.right_inputs}>
+                  <TextInput
+                    placeholder="نام و نام خانوادگی"
+                    width="267px"
+                    name="fullName"
+                    type={"text"}
+                    onChange={formik.handleChange}
+                    onBlue={formik.handleBlur}
+                    value={formik.values.fullName}
+                    error={formik.errors.fullName}
+                    touch={formik.dirty}
+                  />
+                  {formik.dirty && formik.errors.fullName && (
+                    <Error value={formik.errors.fullName} />
+                  )}
+                  <TextInput
+                    placeholder="شماره تماس"
+                    width="267px"
+                    name="mobileNumber"
+                    type="phone"
+                    onChange={formik.handleChange}
+                    onBlue={formik.handleBlur}
+                    value={formik.values.mobileNumber}
+                    error={formik.errors.mobileNumber}
+                    touch={formik.dirty}
 
-                />
-                {formik.dirty && formik.errors.mobileNumber && (
-                  <Error value={formik.errors.mobileNumber} />
-                )}
-                <TextInput
-                  placeholder="آدرس ایمیل"
-                  width="267px"
-                  name="email"
-                  type="email"
-                  onChange={formik.handleChange}
-                  onBlue={formik.handleBlur}
-                  value={formik.values.email}
-                  error={formik.errors.email}
-                  touch={formik.dirty}
+                  />
+                  {formik.dirty && formik.errors.mobileNumber && (
+                    <Error value={formik.errors.mobileNumber} />
+                  )}
+                  <TextInput
+                    placeholder="آدرس ایمیل"
+                    width="267px"
+                    name="email"
+                    type="email"
+                    onChange={formik.handleChange}
+                    onBlue={formik.handleBlur}
+                    value={formik.values.email}
+                    error={formik.errors.email}
+                    touch={formik.dirty}
 
-                />
-                {formik.dirty && formik.errors.email && (
-                  <Error value={formik.errors.email} />
-                )}
-              </div>
-              <div className={styles.left_inputs}>
-                <textarea
-                  name='message'
-                  id='message'
-                  value={formik.values.message}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  cols={37}
-                  rows={7}
-                  className={styles.textarea}
-                  placeholder='پیام شما'
-                  style={{
-                    borderColor: formik.dirty && formik.errors.message
-                      ? "var(--state-error-error)"
-                      : formik.dirty && !formik.errors.message
-                        ? "var(--state-success-success)"
-                        : "var(--neutral-white)"
-                  }}
-                />
-                {formik.dirty && formik.errors.message && (
-                  <Error value={formik.errors.message} />
-                )}
-                <Buttons
-                  text={"ارسال پیام"}
-                  bgColor={"transparent"}
-                  color={"var(--neutral-white)"}
-                  border={true}
-                  borderColor={"var(--neutral-white)"}
-                  exteraRadius={false}
-                  type="submit"
-                  disabled={!formik.dirty || !formik.isValid}
-                />
-              </div>
-            </form>
-          </div>
+                  />
+                  {formik.dirty && formik.errors.email && (
+                    <Error value={formik.errors.email} />
+                  )}
+                </div>
+                <div className={styles.left_inputs}>
+                  <textarea
+                    name='message'
+                    id='message'
+                    value={formik.values.message}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    cols={37}
+                    rows={7}
+                    className={styles.textarea}
+                    placeholder='پیام شما'
+                    style={{
+                      borderColor: formik.dirty && formik.errors.message
+                        ? "var(--state-error-error)"
+                        : formik.dirty && !formik.errors.message
+                          ? "var(--state-success-success)"
+                          : "var(--neutral-white)"
+                    }}
+                  />
+                  {formik.dirty && formik.errors.message && (
+                    <Error value={formik.errors.message} />
+                  )}
+                  <Buttons
+                    text={"ارسال پیام"}
+                    bgColor={"transparent"}
+                    color={"var(--neutral-white)"}
+                    border={true}
+                    borderColor={"var(--neutral-white)"}
+                    exteraRadius={false}
+                    type="submit"
+                    disabled={!formik.dirty || !formik.isValid}
+                  />
+                </div>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </div>

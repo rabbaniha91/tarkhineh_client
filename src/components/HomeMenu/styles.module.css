@@ -33,5 +33,20 @@
   }
 
   .menu{
+    align-items: center;
+    justify-content: center;
+    row-gap: 180px;
+    column-gap: 48px;
+  }
+
+  
+}
+
+@media screen and (max-width:430px) {
+  .menu{
+    align-items: center;
+    margin-top: 72px;
+    row-gap: 0;
+    column-gap: 24px;
   }
 }
