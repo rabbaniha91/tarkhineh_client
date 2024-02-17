@@ -11,7 +11,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const Navbar = () => {
-  const { isXMD } = useScreenSize()
+  const { isXMD, isSM } = useScreenSize()
   const location = useLocation()
   const [url, setUrl] = useState("")
 
@@ -66,11 +66,13 @@ const Navbar = () => {
         </ul>
       )}
       <div className={styles.left}>
-        <Tooltip placement='bottom' title={"جستجو"} color='var(--green-primary)'>
-          <div className={styles.icons}>
-            <CiSearch size={24} color='var(--green-primary)' />
-          </div>
-        </Tooltip>
+        {isSM && (
+          <Tooltip placement='bottom' title={"جستجو"} color='var(--green-primary)'>
+            <div className={styles.icons}>
+              <CiSearch size={24} color='var(--green-primary)' />
+            </div>
+          </Tooltip>
+        )}
         <Tooltip placement='bottom' title="سبد خرید" color='var(--green-primary)'>
           <div className={styles.icons}>
             <CiShoppingCart size={24} color='var(--green-primary)' />

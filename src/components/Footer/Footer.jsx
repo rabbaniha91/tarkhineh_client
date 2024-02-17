@@ -85,6 +85,8 @@ const Footer = () => {
                     value={formik.values.fullName}
                     error={formik.errors.fullName}
                     touch={formik.dirty}
+                    borderColor="var(--neutral-white)"
+                    outlined={false}
                   />
                   {formik.dirty && formik.errors.fullName && (
                     <Error value={formik.errors.fullName} />
@@ -99,7 +101,8 @@ const Footer = () => {
                     value={formik.values.mobileNumber}
                     error={formik.errors.mobileNumber}
                     touch={formik.dirty}
-
+                    borderColor="var(--neutral-white)"
+                    outlined={false}
                   />
                   {formik.dirty && formik.errors.mobileNumber && (
                     <Error value={formik.errors.mobileNumber} />
@@ -114,7 +117,8 @@ const Footer = () => {
                     value={formik.values.email}
                     error={formik.errors.email}
                     touch={formik.dirty}
-
+                    borderColor="var(--neutral-white)"
+                    outlined={false}
                   />
                   {formik.dirty && formik.errors.email && (
                     <Error value={formik.errors.email} />

@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
 import styles from "./styles.module.css"
 
-const TextInput = React.memo(({ placeholder, width, name, type, onChange, onBlur, value, error, touch }) => {
+const TextInput = React.memo(({
+    placeholder, width, name, type, onChange, onBlur,
+    value, error, borderColor, outlined, bgColor
+}) => {
     const [dirtyInput, setDirtyInput] = useState(false)
+    const [focus, setFocus] = useState(false)
     return (
         <div
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
             className={styles.container}
             style={{
                 width: width,
+                border: "0.5px solid",
+                borderRadius: "4px",
                 borderColor: dirtyInput && error
                     ? "var(--state-error-error)"
                     : dirtyInput && !error
                         ? "var(--state-success-success)"
-                        : "var(--neutral-white)"
+                        : borderColor
             }}
         >
             <input onInput={(e) => {
@@ -24,8 +32,22 @@ const TextInput = React.memo(({ placeholder, width, name, type, onChange, onBlur
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
+                style={{ color: borderColor }}
             />
-            <label htmlFor={name} className={!dirtyInput ? styles.placeholder : styles.dirty_placeholder}>{placeholder}</label>
+            <label
+                htmlFor={name}
+                style={{ color: borderColor, backgroundColor: outlined ? bgColor : "transparent" }}
+                className={`${focus && !outlined && !dirtyInput
+                    ? styles.placeholder_inlined
+                    : focus && outlined && !dirtyInput
+                        ? styles.placeholder_outlined
+                        : !focus && !outlined && dirtyInput ? styles.dirty_placeholder_inlined
+                            : !focus && outlined && dirtyInput ? styles.dirty_placeholder_outlined
+                                : focus && !outlined && dirtyInput ? styles.placeholder_inlined
+                                    : focus && outlined && dirtyInput ? styles.dirty_placeholder_outlined
+                                        : styles.placeholder_inlined}`}>
+                {placeholder}
+            </label>
         </div>
     )
 })

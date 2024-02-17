@@ -1,7 +1,6 @@
 .container {
   position: relative;
   border-radius: 4px;
-  border: 1px solid var(--neutral-white);
   z-index: 0;
 }
 .input {
@@ -12,7 +11,6 @@
   height: 100%;
   border-radius: 4px;
   font-size: var(--small-desktop);
-  color: var(--neutral-white);
   z-index: 10;
 }
 
@@ -21,22 +19,21 @@
   border: none;
 }
 
-.placeholder {
+.placeholder_inlined,
+.placeholder_outlined {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 4%;
-  color: var(--neutral-white);
   opacity: 1;
   transition: all 0.1s linear;
   padding-top: 2px;
   padding-bottom: 4px;
   z-index: -1;
   font-size: var(--small-desktop);
-
 }
 
-.dirty_placeholder {
+.dirty_placeholder_inlined {
   position: absolute;
   transform: translateY(-50%);
   color: var(--neutral-white);
@@ -48,9 +45,31 @@
   right: 1%;
   font-size: 0.6rem;
 }
+.dirty_placeholder_outlined {
+  position: absolute;
+  transform: translateY(-50%);
+  color: var(--neutral-white);
+  opacity: 1;
+  transition: all 0.3s linear;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  top: -2%;
+  right: 2%;
+  padding: 0 0.3rem;
+  font-size: var(--small-desktop);
 
-.input:focus + .placeholder {
+}
+
+.input:focus + .placeholder_inlined {
   top: 17%;
   right: 1%;
   font-size: 0.6rem;
 }
+
+.input:focus + .placeholder_outlined {
+  top: -2%;
+  right: 2%;
+  padding: 0 0.3rem;
+}
+
+/* !dirtyInput  ? styles.placeholder : styles.dirty_placeholder_inlined */
