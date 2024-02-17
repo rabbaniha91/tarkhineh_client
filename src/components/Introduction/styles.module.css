@@ -62,3 +62,21 @@
     align-items: center;
     gap: 24px;
 }
+
+
+@media screen and (max-width: 1024px) {
+  .image_container{
+    height: auto;
+    padding-bottom: 48px;
+  }
+  .content_container{
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media screen and(max-width:560px) {
+  .left{
+    width: auto;
+  }
+}
