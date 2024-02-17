@@ -1,10 +1,16 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
+import styles from "./styles.module.css"
 
-const Buttons = ({ text, bgColor, icon, color, hoverBg, border = false, borderColor, dualIcons, exteraRadius = true }) => {
+const Buttons = ({
+    text, bgColor, icon, color, hoverBg, border = false,
+    borderColor, dualIcons, exteraRadius = true, disabled = false, type
+}) => {
     const buttonRef = useRef(null)
 
     return (
         <button
+            className={styles.button}
+            type={type}
             ref={buttonRef}
             onMouseEnter={() => {
                 buttonRef.current.style.backgroundColor = hoverBg
@@ -24,9 +30,11 @@ const Buttons = ({ text, bgColor, icon, color, hoverBg, border = false, borderCo
                 borderRadius: exteraRadius ? "8px" : "4px",
                 backgroundColor: `${bgColor}`,
                 color: `${color}`,
-                cursor: "pointer",
-                transition: "all 0.3s ease-out"
-            }}>
+                transition: "all 0.3s ease-out",
+
+            }}
+            disabled={disabled}
+        >
             {dualIcons && icon}
             {text}
             {icon}
