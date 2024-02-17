@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 
 const Buttons = ({
     text, bgColor, icon, color, hoverBg, border = false,
-    borderColor, dualIcons, exteraRadius = true, disabled = false, type
+    borderColor, dualIcons, exteraRadius = true, disabled = false, type, width
 }) => {
     const buttonRef = useRef(null)
 
@@ -19,7 +19,7 @@ const Buttons = ({
                 buttonRef.current.style.backgroundColor = bgColor
             }}
             style={{
-                padding: "5.5px 32px",
+                padding: "12px 32px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -31,6 +31,7 @@ const Buttons = ({
                 backgroundColor: `${bgColor}`,
                 color: `${color}`,
                 transition: "all 0.3s ease-out",
+                width: width
 
             }}
             disabled={disabled}

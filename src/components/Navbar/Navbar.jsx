@@ -6,8 +6,9 @@ import { Tooltip } from "antd"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Dropdown, Space } from "antd"
-import { branchesitem, menuItem } from "../../data/data.jsx"
+import { Dropdown, Space, Button } from "antd"
+import { branchesitem, menuItem, userMenuItem } from "../../data/data.jsx"
+import Login from '../Login/Login.jsx'
 
 
 
@@ -16,13 +17,31 @@ const Navbar = () => {
   const { isXMD, isSM } = useScreenSize()
   const location = useLocation()
   const [url, setUrl] = useState("")
+  const [showLogin, setShowLogin] = useState(false)
+  const [loginUser, setLoginUser] = useState(false)
+  const [isScroll, setIsScroll] = useState(false)
 
   useEffect(() => {
     setUrl(location.pathname)
   }, [location])
 
+  useEffect(() => {
+    console.log(document.documentElement.scrollTop)
+    const handleScroll = () => {
+      if (document.documentElement.scrollTop > 100) {
+        setIsScroll(true)
+      }else{
+        setIsScroll(false)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [document.documentElement.scrollTop])
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isScroll && styles.scrolled_navbar}`}>
       {isXMD && (
         <div>
           <RxHamburgerMenu size={24} color='var(--green-primary)' />
@@ -93,12 +112,33 @@ const Navbar = () => {
             <CiShoppingCart size={24} color='var(--green-primary)' />
           </div>
         </Tooltip>
-        <Tooltip placement='bottom' title="ورود / ثبت نام" color='var(--green-primary)'>
-          <div className={styles.icons}>
-            <CiUser size={24} color='var(--green-primary)' />
-          </div>
-        </Tooltip>
+        {!loginUser && (
+          <Tooltip placement='bottom' title="ورود / ثبت نام" color='var(--green-primary)'>
+            <div className={styles.icons} onClick={() => setShowLogin(true)}>
+              <CiUser size={24} color='var(--green-primary)' />
+            </div>
+          </Tooltip>
+        )}
+        {loginUser && (
+          <Dropdown menu={{ items: userMenuItem }}>
+            <Button style={{
+              width: "auto",
+              backgroundColor: "var(--green-green-tint-1)",
+              border: "none"
+            }}>
+              <Space>
+                <CiUser size={24} color='var(--green-primary)' />
+                <IoIosArrowDown color='var(--green-primary)' />
+              </Space>
+            </Button>
+          </Dropdown>
+        )}
       </div>
+      {showLogin && (
+        <div className={styles.login_before}>
+          <Login setShow={setShowLogin} />
+        </div>
+      )}
     </div>
   )
 }
