@@ -8,9 +8,9 @@ const TextInput = React.memo(({ placeholder, width, name, type, onChange, onBlur
             className={styles.container}
             style={{
                 width: width,
-                borderColor: touch && error
+                borderColor: dirtyInput && error
                     ? "var(--state-error-error)"
-                    : touch && !error
+                    : dirtyInput && !error
                         ? "var(--state-success-success)"
                         : "var(--neutral-white)"
             }}
