@@ -21,22 +21,22 @@
   gap: 24px;
 }
 
-.ul li {
+.li {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
   font-size: var(--h6-desktop);
   line-height: 1.8;
+  color: var(--neutral-717171);
 }
 
 .link {
   text-decoration: none;
-  color: var(--neutral-717171);
   transition: all 0.1s ease-out;
 }
 
-.link:hover {
+.li:hover {
   color: var(--green-primary);
 }
 

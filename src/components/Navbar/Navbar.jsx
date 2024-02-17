@@ -6,6 +6,8 @@ import { Tooltip } from "antd"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Dropdown, Space } from "antd"
+import { branchesitem, menuItem } from "../../data/data.jsx"
 
 
 
@@ -31,35 +33,48 @@ const Navbar = () => {
         <ul className={styles.ul}>
 
           <Link to={"/"} className={`${styles.link} `}>
-            <li className={`${url === "/" ? styles.active : ""}`}>
+            <li className={`${styles.li} ${url === "/" ? styles.active : ""}`}>
               صفحه اصلی
             </li>
           </Link>
-          <Link to={"/branches"} className={styles.link}>
-            <li className={`${url === "/branches" ? styles.active : ""}`}>
-              شعبه
-              <IoIosArrowDown />
-            </li>
-          </Link>
-          <Link to={"/menu"} className={styles.link}>
-            <li className={`${url === "/menu" ? styles.active : ""}`}>
-              منو
-              <IoIosArrowDown />
 
+          <Dropdown
+            menu={{
+              items: branchesitem,
+            }}
+          >
+            <li className={`${styles.li}`}>
+              <Space>
+                شعبه
+                <IoIosArrowDown />
+              </Space>
             </li>
-          </Link>
+          </Dropdown>
+
+          <Dropdown
+            menu={{
+              items: menuItem,
+            }}
+          >
+            <li className={`${styles.li}`}>
+              <Space>
+                منو
+                <IoIosArrowDown />
+              </Space>
+            </li>
+          </Dropdown>
           <Link to={"/Representation"} className={styles.link}>
-            <li className={`${url === "/Representation" ? styles.active : ""}`}>
+            <li className={`${styles.li} ${url === "/Representation" ? styles.active : ""}`}>
               اعطای نمایندگی
             </li>
           </Link>
           <Link to={"/about_us"} className={styles.link}>
-            <li className={`${url === "/about_us" ? styles.active : ""}`}>
+            <li className={`${styles.li} ${url === "/about_us" ? styles.active : ""}`}>
               درباره ما
             </li>
           </Link>
           <Link to={"/contact_us"} className={styles.link}>
-            <li className={`${url === "/contact_us" ? styles.active : ""}`}>
+            <li className={`${styles.li} ${url === "/contact_us" ? styles.active : ""}`}>
               تماس با ما
             </li>
           </Link>

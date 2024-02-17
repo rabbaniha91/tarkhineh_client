@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./styles.module.css"
-import { carouselImages } from "../../data/data"
+import { carouselImages } from "../../data/data.jsx"
 import Buttons from '../useFull/Buttons/Buttons'
 
 const CarouselComponent = () => {
@@ -16,7 +16,7 @@ const CarouselComponent = () => {
                 autoplay-delay="3500"
                 autoplay-disable-on-interaction="false"
                 rtl="true"
-                space-between="10"
+                space-between="1"
             >
 
                 <swiper-slide>
