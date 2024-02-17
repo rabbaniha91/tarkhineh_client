@@ -7,7 +7,9 @@ import useScreenSize from '../../hooks/useScreenSize'
 const HomeMenu = () => {
     const { isSM } = useScreenSize()
     return (
-        <div className={styles.container}>
+        <div 
+        style={{paddingTop: !isSM && "24px"}}
+        className={styles.container}>
             {!isSM && (
                 <TextInput
                     type="text"
