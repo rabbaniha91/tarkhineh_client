@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./styles.module.css"
-import Buttons from '../useFull/Buttons'
+import Buttons from '../useFull/Buttons/Buttons'
 import { IoIosArrowBack } from "react-icons/io";
 import { RiUserLine } from "react-icons/ri";
 import { AiOutlineLineChart } from "react-icons/ai";

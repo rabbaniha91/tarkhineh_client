@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./styles.module.css"
 import { carouselImages } from "../../data/data"
-import Buttons from '../useFull/Buttons'
+import Buttons from '../useFull/Buttons/Buttons'
 
 const CarouselComponent = () => {
     return (
