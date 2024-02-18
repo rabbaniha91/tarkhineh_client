@@ -65,7 +65,7 @@ export const branchesitem = [
 export const menuItem = [
     {
         label: (
-            <Link to={"/menu"} style={{ width: "144px" }}>
+            <Link to={"/menu"} state={1} style={{ width: "144px" }}>
                 غذای اصلی
             </Link>
         ),
@@ -76,7 +76,7 @@ export const menuItem = [
     },
     {
         label: (
-            <Link to={"/menu"}>
+            <Link to={"/menu"} state={2}>
                 پیش غذا
             </Link>
         ),
@@ -87,7 +87,7 @@ export const menuItem = [
     },
     {
         label: (
-            <Link to={"/menu"}>
+            <Link to={"/menu"} state={3}>
                 دسر
             </Link>
         ),
@@ -98,7 +98,7 @@ export const menuItem = [
     },
     {
         label: (
-            <Link to={"/menu"}>
+            <Link to={"/menu"} state={4}>
                 نوشیدنی
             </Link>
         ),
@@ -238,3 +238,5 @@ export const mobileMenuItems = [
     getItem('درباره ما', '13', <MdRoundaboutLeft />),
     getItem('تماس با ما', '14', <IoCallOutline />),
 ];
+
+

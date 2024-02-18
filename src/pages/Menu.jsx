@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Carousel from '../components/Carousel'
-import TitleMenuPage from '../components/TitleMenuPage/TitleMenuPage'
+import MenuPageTabs from '../components/MenuPageTabs/MenuPageTabs'
 
 const Menu = () => {
     return (
         <div>
             <Navbar />
             <Carousel />
-            <TitleMenuPage />
+            <MenuPageTabs />
         </div>
     )
 }
