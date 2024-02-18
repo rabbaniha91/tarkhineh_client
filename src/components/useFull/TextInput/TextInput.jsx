@@ -35,7 +35,7 @@ const TextInput = React.memo(({
                 value={value}
                 dir={dir}
                 autoFocus={autoFocus}
-                style={{ color: borderColor, paddingTop: outlined && "8px" }}
+                style={{ color: borderColor, padding: outlined && "14px 8px" }}
             />
             <label
                 htmlFor={name}
