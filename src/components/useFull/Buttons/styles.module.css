@@ -1,5 +1,5 @@
 .button {
-  cursor: "pointer";
+  cursor: pointer;
 }
 
 .button:disabled {
