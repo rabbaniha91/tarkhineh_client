@@ -92,7 +92,7 @@ const Navbar = () => {
               items: menuItem,
             }}
           >
-            <li className={`${styles.li}`}>
+            <li className={`${styles.li} ${url === "/menu" ? styles.active : ""}`}>
               <Space>
                 منو
                 <IoIosArrowDown />

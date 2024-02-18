@@ -8,6 +8,7 @@ import { BsMenuUp } from "react-icons/bs";
 import { PiGitBranchThin } from "react-icons/pi";
 import { MdRoundaboutLeft } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 export const carouselImages = [
@@ -64,9 +65,9 @@ export const branchesitem = [
 export const menuItem = [
     {
         label: (
-            <div style={{ width: "144px" }}>
+            <Link to={"/menu"} style={{ width: "144px" }}>
                 غذای اصلی
-            </div>
+            </Link>
         ),
         key: '0',
     },
@@ -75,9 +76,9 @@ export const menuItem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/menu"}>
                 پیش غذا
-            </div>
+            </Link>
         ),
         key: '1',
     },
@@ -86,9 +87,9 @@ export const menuItem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/menu"}>
                 دسر
-            </div>
+            </Link>
         ),
         key: '2',
     },
@@ -97,9 +98,9 @@ export const menuItem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/menu"}>
                 نوشیدنی
-            </div>
+            </Link>
         ),
         key: '3',
     },
