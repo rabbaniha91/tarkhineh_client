@@ -8,6 +8,7 @@ import { useFormik } from "formik"
 import styles from "./styles.module.css"
 import GetCodeInputs from './GetCodeInputs';
 import Error from '../useFull/Error/Error';
+import Timer from '../useFull/Timer/Timer';
 const phoneRegex = /^09\d{9}/
 
 
@@ -72,7 +73,12 @@ const Login = ({ setShow }) => {
                         )}
                     </>
                 ) : (
-                    <GetCodeInputs setConfirmCode={setConfirmCode} error={false} />
+                    <>
+                        <GetCodeInputs setConfirmCode={setConfirmCode} error={false} />
+
+                        <Timer />
+
+                    </>
                 )}
                 <Buttons
                     text={!confirmState ? "ادامه" : "تائید"}
