@@ -7,11 +7,12 @@ import { useFormik } from "formik"
 
 import styles from "./styles.module.css"
 import GetCodeInputs from './GetCodeInputs';
+import Error from '../useFull/Error/Error';
 const phoneRegex = /^09\d{9}/
 
 
 const Login = ({ setShow }) => {
-    const [changeState, setChangeState] = useState(true)
+    const [changeState, setChangeState] = useState(false)
     const [confirmCode, setConfirmCode] = useState([])
 
     const valdate = Yup.object({
@@ -27,12 +28,11 @@ const Login = ({ setShow }) => {
         validationSchema: valdate,
         onSubmit: (values) => {
             console.log(values)
+            setChangeState(true)
         }
     })
 
-    useEffect(() => {
-        console.log(confirmCode)
-    }, [confirmCode])
+
     return (
         <div className={styles.container}>
             <IoIosClose
@@ -42,22 +42,31 @@ const Login = ({ setShow }) => {
             />
             <img className={styles.logo} src="/logos/Vector.png" alt="" />
             <p className={styles.title}>ورود / ثبت نام</p>
-            <p className={styles.text}>با وارد کردن شماره موبایل شماره تائیدی برای شما ارسال خواهد شد.</p>
+            <p className={styles.text}>{!changeState
+                ? ("با وارد کردن شماره موبایل شماره کد تائیدی برای شما ارسال خواهد شد.")
+                : (`کد تائید پنج رقمی به شماره ${formik.values.mobileNumber} ارسال شد.`)}</p>
             <form className={styles.input} onSubmit={formik.handleSubmit}>
                 {!changeState ? (
-                    <TextInput
-                        placeholder="شماره همراه"
-                        width="100%"
-                        name="mobileNumber"
-                        type="phone"
-                        borderColor="var(--neutral-black)"
-                        outlined={true}
-                        bgColor="var(--neutral-white)"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.mobileNumber}
-                        error={formik.errors.mobileNumber}
-                    />
+                    <>
+                        <TextInput
+                            autoFocus={true}
+                            dir="ltr"
+                            placeholder="شماره همراه"
+                            width="100%"
+                            name="mobileNumber"
+                            type="phone"
+                            borderColor="var(--neutral-black)"
+                            outlined={true}
+                            bgColor="var(--neutral-white)"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.mobileNumber}
+                            error={formik.errors.mobileNumber}
+                        />
+                        {formik.dirty && formik.errors.mobileNumber && (
+                            <Error value={formik.errors.mobileNumber} />
+                        )}
+                    </>
                 ) : (
                     <GetCodeInputs setConfirmCode={setConfirmCode} />
                 )}
