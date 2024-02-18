@@ -10,6 +10,8 @@
   padding-right: calc((100% - 1224px) / 2);
   padding-left: calc((100% - 1224px) / 2);
   min-width: 100%;
+  top: 0;
+  box-shadow: 1px 1px 3px 0px #eee;
 }
 
 .scrolled_navbar {
