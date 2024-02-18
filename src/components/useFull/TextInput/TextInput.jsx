@@ -3,7 +3,8 @@ import styles from "./styles.module.css"
 
 const TextInput = React.memo(({
     placeholder, width, name, type, onChange, onBlur,
-    value, error, borderColor, outlined, bgColor
+    value, error, borderColor, outlined, bgColor, dir = "rtl",
+    autoFocus = false
 }) => {
     const [dirtyInput, setDirtyInput] = useState(false)
     const [focus, setFocus] = useState(false)
@@ -32,7 +33,9 @@ const TextInput = React.memo(({
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
-                style={{ color: borderColor }}
+                dir={dir}
+                autoFocus={autoFocus}
+                style={{ color: borderColor, paddingTop: outlined && "8px" }}
             />
             <label
                 htmlFor={name}
