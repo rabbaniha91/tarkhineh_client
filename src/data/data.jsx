@@ -3,6 +3,12 @@ import { CiWallet } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
+import { PiHouseSimpleLight } from "react-icons/pi";
+import { BsMenuUp } from "react-icons/bs";
+import { PiGitBranchThin } from "react-icons/pi";
+import { MdRoundaboutLeft } from "react-icons/md";
+import { IoCallOutline } from "react-icons/io5";
+
 
 export const carouselImages = [
     "1.png",
@@ -200,6 +206,34 @@ export const userMenuItem = [
     {
         type: 'divider',
     },
-    
 
+
+];
+
+function getItem(label, key, icon, children, type) {
+    return {
+        key,
+        icon,
+        children,
+        label,
+        type,
+    };
+}
+
+export const mobileMenuItems = [
+    getItem('صفحه اصلی', '1', <PiHouseSimpleLight />),
+    getItem('منو', 'sub1', <BsMenuUp />, [
+        getItem('غذای اصلی', '5'),
+        getItem('پیش غذا', '6'),
+        getItem('دسر', '7'),
+        getItem('نوشیدنی', '8'),
+    ]),
+    getItem('شعبه', 'sub2', <PiGitBranchThin />, [
+        getItem('اکباتان', '9'),
+        getItem('چالوس', '10'),
+        getItem('اقدسیه', '11'),
+        getItem('ونک', '12'),
+    ]),
+    getItem('درباره ما', '13', <MdRoundaboutLeft />),
+    getItem('تماس با ما', '14', <IoCallOutline />),
 ];

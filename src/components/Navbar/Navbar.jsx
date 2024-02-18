@@ -9,6 +9,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Dropdown, Space, Button } from "antd"
 import { branchesitem, menuItem, userMenuItem } from "../../data/data.jsx"
 import Login from '../Login/Login.jsx'
+import CustomDrawer from '../useFull/Drawer/CustomDrawer.jsx'
 
 
 
@@ -20,17 +21,17 @@ const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false)
   const [loginUser, setLoginUser] = useState(false)
   const [isScroll, setIsScroll] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     setUrl(location.pathname)
   }, [location])
 
   useEffect(() => {
-    console.log(document.documentElement.scrollTop)
     const handleScroll = () => {
       if (document.documentElement.scrollTop > 100) {
         setIsScroll(true)
-      }else{
+      } else {
         setIsScroll(false)
       }
     }
@@ -43,9 +44,25 @@ const Navbar = () => {
   return (
     <div className={`${styles.container} ${isScroll && styles.scrolled_navbar}`}>
       {isXMD && (
-        <div>
-          <RxHamburgerMenu size={24} color='var(--green-primary)' />
-        </div>
+        <>
+          <div onClick={() => setOpen(true)}>
+            <RxHamburgerMenu size={24} color='var(--green-primary)' />
+          </div>
+          <CustomDrawer
+            open={open}
+            placement={"right"}
+            title={<img
+              style={{
+                width: "100%",
+                height: "110px",
+                objectFit: "cover"
+              }}
+              src='./images/footer/3.jpg' />}
+            setOpen={setOpen}
+          />
+
+
+        </>
       )}
       <img src="/logos/Logo.png" alt="" />
       {!isXMD && (
