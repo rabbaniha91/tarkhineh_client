@@ -1,0 +1,19 @@
+.container {
+  background-color: var(--neutral-ededed);
+  padding: 16px 0;
+}
+
+.content_container{
+    max-width: 1224px;
+    margin: 0 auto;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.content_container span{
+    cursor: pointer;
+    color: var(--neutral-717171);
+}
