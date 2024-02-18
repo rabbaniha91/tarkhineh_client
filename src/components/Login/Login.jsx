@@ -12,7 +12,7 @@ const phoneRegex = /^09\d{9}/
 
 
 const Login = ({ setShow }) => {
-    const [changeState, setChangeState] = useState(false)
+    const [confirmState, setConfirmState] = useState(false)
     const [confirmCode, setConfirmCode] = useState([])
 
     const valdate = Yup.object({
@@ -27,8 +27,12 @@ const Login = ({ setShow }) => {
         },
         validationSchema: valdate,
         onSubmit: (values) => {
-            console.log(values)
-            setChangeState(true)
+            if (!confirmState) {
+                console.log(values)
+                setConfirmState(true)
+            } else {
+                console.log("send")
+            }
         }
     })
 
@@ -42,11 +46,11 @@ const Login = ({ setShow }) => {
             />
             <img className={styles.logo} src="/logos/Vector.png" alt="" />
             <p className={styles.title}>ورود / ثبت نام</p>
-            <p className={styles.text}>{!changeState
+            <p className={styles.text}>{!confirmState
                 ? ("با وارد کردن شماره موبایل شماره کد تائیدی برای شما ارسال خواهد شد.")
                 : (`کد تائید پنج رقمی به شماره ${formik.values.mobileNumber} ارسال شد.`)}</p>
             <form className={styles.input} onSubmit={formik.handleSubmit}>
-                {!changeState ? (
+                {!confirmState ? (
                     <>
                         <TextInput
                             autoFocus={true}
@@ -68,16 +72,16 @@ const Login = ({ setShow }) => {
                         )}
                     </>
                 ) : (
-                    <GetCodeInputs setConfirmCode={setConfirmCode} />
+                    <GetCodeInputs setConfirmCode={setConfirmCode} error={false} />
                 )}
                 <Buttons
-                    text={!changeState ? "ادامه" : "تائید"}
+                    text={!confirmState ? "ادامه" : "تائید"}
                     width={"100%"}
                     bgColor="var(--green-primary)"
                     color="var(--neutral-white)"
                     hoverBg="var(--green-green-shade-10)"
                     exteraRadius={false}
-                    disabled={!changeState ? !formik.dirty || formik.errors.mobileNumber : confirmCode.length < 5}
+                    disabled={!confirmState ? !formik.dirty || formik.errors.mobileNumber : confirmCode.length < 5}
                     type={"submit"}
                 />
             </form>

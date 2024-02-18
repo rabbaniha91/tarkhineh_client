@@ -89,7 +89,11 @@
   outline: none;
 }
 
-/* Chrome, Safari, Edge, Opera */
+.error .code_input{
+  border-color: var(--state-error-error);
+}
+
+
 .code_input::-webkit-inner-spin-button,
 .code_input::-webkit-outer-spin-button {
   -webkit-appearance: none;

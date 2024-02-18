@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 
 
 
-const GetCodeInputs = ({ setConfirmCode }) => {
+const GetCodeInputs = ({ setConfirmCode, error = false }) => {
     const [index, setIndex] = useState(1)
     const handleJustNumber = (e) => {
         let newIndex = index;
@@ -22,7 +22,7 @@ const GetCodeInputs = ({ setConfirmCode }) => {
         }
     }
     return (
-        <div className={styles.code_input_container}>
+        <div className={`${styles.code_input_container} ${error && styles.error}`}>
             <input type="number" id='1' className={styles.code_input}
                 autoFocus
                 onInput={(e) => handleJustNumber(e)} />
