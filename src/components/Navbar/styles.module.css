@@ -3,19 +3,18 @@
   align-items: center;
   justify-content: space-between;
   padding: 41px 0;
-  max-width: 1224px;
-  margin: 0 auto;
   background-color: var(--neutral-white);
   transition: all 0.1s ease-in-out;
-}
-
-.scrolled_navbar{
   position: fixed;
   z-index: 9999;
-  padding: 4px 0;
-  min-width: 100%;
   padding-right: calc((100% - 1224px) / 2);
   padding-left: calc((100% - 1224px) / 2);
+  min-width: 100%;
+}
+
+.scrolled_navbar {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .container img {
   width: 99px;
@@ -85,10 +84,9 @@
   z-index: 9998;
 }
 
-
-
 @media screen and (max-width: 1024px) {
   .container {
-    margin: 0 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
