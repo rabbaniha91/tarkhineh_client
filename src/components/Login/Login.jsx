@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosClose } from "react-icons/io";
 import TextInput from "../useFull/TextInput/TextInput"
 import Buttons from "../useFull/Buttons/Buttons"
@@ -12,7 +12,7 @@ const phoneRegex = /^09\d{9}/
 
 const Login = ({ setShow }) => {
     const [changeState, setChangeState] = useState(true)
-
+    const [confirmCode, setConfirmCode] = useState([])
 
     const valdate = Yup.object({
         mobileNumber: Yup.string()
@@ -29,6 +29,10 @@ const Login = ({ setShow }) => {
             console.log(values)
         }
     })
+
+    useEffect(() => {
+        console.log(confirmCode)
+    }, [confirmCode])
     return (
         <div className={styles.container}>
             <IoIosClose
@@ -55,7 +59,7 @@ const Login = ({ setShow }) => {
                         error={formik.errors.mobileNumber}
                     />
                 ) : (
-                    <GetCodeInputs />
+                    <GetCodeInputs setConfirmCode={setConfirmCode} />
                 )}
                 <Buttons
                     text={!changeState ? "ادامه" : "تائید"}
@@ -64,7 +68,7 @@ const Login = ({ setShow }) => {
                     color="var(--neutral-white)"
                     hoverBg="var(--green-green-shade-10)"
                     exteraRadius={false}
-                    disabled={!formik.dirty || formik.errors.mobileNumber}
+                    disabled={!changeState ? !formik.dirty || formik.errors.mobileNumber : confirmCode.length < 5}
                     type={"submit"}
                 />
             </form>

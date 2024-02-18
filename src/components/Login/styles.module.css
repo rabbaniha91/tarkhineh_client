@@ -96,7 +96,3 @@
   appearance: none;
 }
 
-/* Firefox */
-.code_input {
-  -moz-appearance: textfield;
-}

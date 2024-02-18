@@ -4,17 +4,19 @@ import styles from "./styles.module.css"
 
 
 
-const GetCodeInputs = () => {
+const GetCodeInputs = ({ setConfirmCode }) => {
     const [index, setIndex] = useState(1)
     const handleJustNumber = (e) => {
         let newIndex = index;
         if (newIndex === 5) {
+            setConfirmCode(prev => { return [...prev, e.target.value] })
             e.target.blur()
             return
         }
         newIndex += 1;
         setIndex(newIndex)
         if (e.target.value.length === 1) {
+            setConfirmCode(prev => { return [...prev, e.target.value] })
             e.target.blur()
             document.getElementById(newIndex).focus()
         }
