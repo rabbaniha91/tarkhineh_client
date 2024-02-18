@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosClose } from "react-icons/io";
 import TextInput from "../useFull/TextInput/TextInput"
 import Buttons from "../useFull/Buttons/Buttons"
@@ -6,8 +6,14 @@ import * as Yup from "yup"
 import { useFormik } from "formik"
 
 import styles from "./styles.module.css"
+import GetCodeInputs from './GetCodeInputs';
 const phoneRegex = /^09\d{9}/
+
+
 const Login = ({ setShow }) => {
+    const [changeState, setChangeState] = useState(true)
+
+
     const valdate = Yup.object({
         mobileNumber: Yup.string()
             .required("ورود شماره همراه الزامی است.")
@@ -30,25 +36,29 @@ const Login = ({ setShow }) => {
                 className={styles.close}
                 onClick={() => setShow(false)}
             />
-            <img src="/logos/Logo.png" alt="" />
+            <img className={styles.logo} src="/logos/Vector.png" alt="" />
             <p className={styles.title}>ورود / ثبت نام</p>
             <p className={styles.text}>با وارد کردن شماره موبایل شماره تائیدی برای شما ارسال خواهد شد.</p>
             <form className={styles.input} onSubmit={formik.handleSubmit}>
-                <TextInput
-                    placeholder="شماره همراه"
-                    width="100%"
-                    name="mobileNumber"
-                    type="phone"
-                    borderColor="var(--neutral-black)"
-                    outlined={true}
-                    bgColor="var(--neutral-white)"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.mobileNumber}
-                    error={formik.errors.mobileNumber}
-                />
+                {!changeState ? (
+                    <TextInput
+                        placeholder="شماره همراه"
+                        width="100%"
+                        name="mobileNumber"
+                        type="phone"
+                        borderColor="var(--neutral-black)"
+                        outlined={true}
+                        bgColor="var(--neutral-white)"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.mobileNumber}
+                        error={formik.errors.mobileNumber}
+                    />
+                ) : (
+                    <GetCodeInputs />
+                )}
                 <Buttons
-                    text={"ادامه"}
+                    text={!changeState ? "ادامه" : "تائید"}
                     width={"100%"}
                     bgColor="var(--green-primary)"
                     color="var(--neutral-white)"

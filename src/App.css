@@ -58,6 +58,11 @@
   --small-mobile: 0.878rem;
 }
 
+
+
+::-webkit-scrollbar-thumb{
+  background-color: #00966d;
+}
 * {
   margin: 0;
   padding: 0;

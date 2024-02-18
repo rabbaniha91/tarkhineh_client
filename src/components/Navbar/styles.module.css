@@ -6,7 +6,7 @@
   background-color: var(--neutral-white);
   transition: all 0.1s ease-in-out;
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
   padding-right: calc((100% - 1224px) / 2);
   padding-left: calc((100% - 1224px) / 2);
   min-width: 100%;
