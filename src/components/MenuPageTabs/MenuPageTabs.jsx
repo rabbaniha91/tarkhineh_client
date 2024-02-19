@@ -8,6 +8,11 @@ const MenuPageTabs = () => {
 
 
 
+    useEffect(() => {
+        if (location.state !== "") {
+            setStage("")
+        }
+    }, [location.state])
 
 
 

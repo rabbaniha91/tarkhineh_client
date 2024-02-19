@@ -14,7 +14,14 @@
 
 .content_container span {
   cursor: pointer;
-  padding: 16px 0;
+  padding: 16px 1rem;
   transition: all 0.3s ease-out;
+  font-size: var(--h6-desktop);
   border-bottom: 2px solid transparent;
+}
+
+@media screen and (max-width: 500px) {
+  .content_container span {
+    font-size: var(--small-mobile);
+  }
 }
