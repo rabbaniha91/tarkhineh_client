@@ -1,0 +1,29 @@
+.container {
+  max-width: 1224px;
+  margin: 24px auto;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+}
+.category a {
+  text-decoration: none;
+  color: var(--neutral-353535);
+  background-color: var(--neutral-ededed);
+  border-radius: 64px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.food_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
