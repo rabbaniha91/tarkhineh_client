@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { CiStar } from "react-icons/ci";
+
 import Buttons from "../../useFull/Buttons/Buttons"
 import styles from "./styles.module.css"
 import useScreenSize from '../../../hooks/useScreenSize';
+import FoodShowScreen from '../FoodShowScreen';
+import Stars from '../Stars';
 
 const FoodCart = React.memo(({ food }) => {
     const { isSM } = useScreenSize()
     const [priceWithOffer, setPriceWithOffer] = useState(null)
+    const [showFullScreenFood, setShowFullScreenFood] = useState(false)
+
     useEffect(() => {
         if (food.offer > 0) {
             const offerPrice = parseInt(food.price) * ((100 - food.offer) / 100)
@@ -14,8 +18,12 @@ const FoodCart = React.memo(({ food }) => {
         }
     }, [])
 
+    useEffect(() => {
+        console.log(showFullScreenFood)
+    }, [showFullScreenFood])
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => setShowFullScreenFood(true)}>
             <img src={food.cover} alt="cover" />
             <div className={styles.content_container}>
                 <h5>{food.foodName}</h5>
@@ -47,13 +55,7 @@ const FoodCart = React.memo(({ food }) => {
 
                 </div>
                 <div className={styles.bottom}>
-                    <div>
-                        <CiStar size={isSM ? 24 : 18} />
-                        <CiStar size={isSM ? 24 : 18} />
-                        <CiStar size={isSM ? 24 : 18} />
-                        <CiStar size={isSM ? 24 : 18} />
-                        <CiStar size={isSM ? 24 : 18} />
-                    </div>
+                    <Stars score={food.score} />
                     <Buttons
                         bgColor={"var(--green-primary)"}
                         text={isSM ? "افزودن به سبد خرید" : "افزودن"}
@@ -64,6 +66,9 @@ const FoodCart = React.memo(({ food }) => {
                     />
                 </div>
             </div>
+            {showFullScreenFood && (
+                <FoodShowScreen food={food} setShowFullScreenFood={setShowFullScreenFood} />
+            )}
         </div>
     )
 })

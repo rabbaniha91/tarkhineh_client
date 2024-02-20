@@ -6,13 +6,13 @@ const Stars = ({ score }) => {
     const { isSM } = useScreenSize()
 
     return (
-        <>
+        <div>
             <FaStar size={isSM ? 24 : 18} color={score >= 1 ? "var(--state-warning-warning-light)" : "var(--neutral-cbcbcb)"} />
             <FaStar size={isSM ? 24 : 18} color={score >= 2 ? "var(--state-warning-warning-light)" : "var(--neutral-cbcbcb)"} />
             <FaStar size={isSM ? 24 : 18} color={score >= 3 ? "var(--state-warning-warning-light)" : "var(--neutral-cbcbcb)"} />
             <FaStar size={isSM ? 24 : 18} color={score >= 4 ? "var(--state-warning-warning-light)" : "var(--neutral-cbcbcb)"} />
             <FaStar size={isSM ? 24 : 18} color={score == 5 ? "var(--state-warning-warning-light)" : "var(--neutral-cbcbcb)"} />
-        </>
+        </div>
     )
 }
 
