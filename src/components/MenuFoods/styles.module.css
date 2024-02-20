@@ -6,6 +6,12 @@
 .category {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.category div {
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
   gap: 48px;
 }
@@ -36,6 +42,10 @@
 
 @media screen and (max-width: 500px) {
   .category {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .category div {
     flex-wrap: wrap;
     gap: 24px;
     padding-right: 1rem;
@@ -51,10 +61,12 @@
     width: 80%;
     margin: 48px auto 24px auto;
   }
-
   .category {
+    flex-direction: column;
+  }
+  .category div {
     width: 80%;
-    margin: 48px auto 24px auto;
+    margin:auto;
     flex-wrap: wrap;
   }
 }
@@ -62,11 +74,18 @@
 @media screen and (min-width: 821px) and (max-width: 1024px) {
   .title {
     width: 60%;
-    margin: 48px auto 24px auto;
+    margin: auto;
   }
-
   .category {
+    justify-content: center;
+    gap: 24px;
+    padding: 0 1rem;
+    align-items: flex-start;
+  }
+  .category div {
     width: 60%;
-    margin: 48px auto 24px auto;
+    margin: 0 auto 24px;
+    flex-wrap: wrap;
+    justify-content:flex-start;
   }
 }
