@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 const TextInput = React.memo(({
     placeholder, width, name, type, onChange, onBlur,
     value, error, borderColor, outlined, bgColor, dir = "rtl",
-    autoFocus = false
+    autoFocus = false, icon
 }) => {
     const [dirtyInput, setDirtyInput] = useState(false)
     const [focus, setFocus] = useState(false)
@@ -51,6 +51,11 @@ const TextInput = React.memo(({
                                         : styles.placeholder_inlined}`}>
                 {placeholder}
             </label>
+            {icon && (
+                <div className={styles.icon}>
+                    {icon}
+                </div>
+            )}
         </div>
     )
 })

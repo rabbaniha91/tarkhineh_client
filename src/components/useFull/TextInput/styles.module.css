@@ -30,7 +30,7 @@
   padding-top: 2px;
   padding-bottom: 4px;
   z-index: -1;
-  font-size: var(--small-desktop);
+  font-size: var(--p-desktop);
 }
 
 .dirty_placeholder_inlined {
@@ -56,7 +56,7 @@
   top: -2%;
   right: 2%;
   padding: 0 0.3rem;
-  font-size: var(--small-desktop);
+  font-size: var(--p-desktop);
 
 }
 
@@ -72,4 +72,13 @@
   padding: 0 0.3rem;
 }
 
-/* !dirtyInput  ? styles.placeholder : styles.dirty_placeholder_inlined */
+.icon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding-left: 8px;
+  cursor: pointer;
+  z-index: 99;
+}
+
