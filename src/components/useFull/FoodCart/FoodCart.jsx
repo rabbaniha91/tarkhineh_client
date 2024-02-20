@@ -23,53 +23,58 @@ const FoodCart = React.memo(({ food }) => {
     }, [showFullScreenFood])
 
     return (
-        <div className={styles.container} onClick={() => setShowFullScreenFood(true)}>
-            <img src={food.cover} alt="cover" />
-            <div className={styles.content_container}>
-                <h5>{food.foodName}</h5>
-                <div className={styles.inner_content_container}>
-                    <p>{food.description}</p>
+        <>
+            <div className={styles.container} >
+                <img src={food.cover} alt="cover" />
+                <div className={styles.content_container}>
+                    <div onClick={() => setShowFullScreenFood(true)}>
+                        <h5>{food.foodName}</h5>
+                        <div className={styles.inner_content_container}>
+                            <p>{food.description}</p>
 
-                    {priceWithOffer !== null ? (
-                        <div className={styles.price_container}>
-                            <div>
-                                <span className={styles.offer}>{
-                                    `%${food.offer.toLocaleString("fa-IR")}`}
-                                </span>
-                                <span className={styles.old_price}>
+                            {priceWithOffer !== null ? (
+                                <div className={styles.price_container}>
+                                    <div>
+                                        <span className={styles.offer}>{
+                                            `%${food.offer.toLocaleString("fa-IR")}`}
+                                        </span>
+                                        <span className={styles.old_price}>
+                                            {parseInt(food.price).toLocaleString("fa-IR")}
+                                        </span>
+                                    </div>
+                                    <span className={styles.new_price}>
+                                        {priceWithOffer?.toLocaleString("fa-IR")}
+                                        <span>تومان</span>
+                                    </span>
+                                </div>
+                            )
+                                :
+                                <span className={styles.price}>
                                     {parseInt(food.price).toLocaleString("fa-IR")}
+                                    <span>تومان</span>
                                 </span>
-                            </div>
-                            <span className={styles.new_price}>
-                                {priceWithOffer?.toLocaleString("fa-IR")}
-                                <span>تومان</span>
-                            </span>
-                        </div>
-                    )
-                        :
-                        <span className={styles.price}>
-                            {parseInt(food.price).toLocaleString("fa-IR")}
-                            <span>تومان</span>
-                        </span>
-                    }
+                            }
 
+                        </div>
+                    </div>
+                    <div className={styles.bottom}>
+                        <Stars score={food.score} />
+                        <Buttons
+                            bgColor={"var(--green-primary)"}
+                            text={isSM ? "افزودن به سبد خرید" : "افزودن"}
+                            color={"var(--neutral-white)"}
+                            hoverBg={"var(--green-green-shade-10)"}
+                            width={isSM ? "244px" : "100px"}
+                            thin={true}
+                        />
+                    </div>
                 </div>
-                <div className={styles.bottom}>
-                    <Stars score={food.score} />
-                    <Buttons
-                        bgColor={"var(--green-primary)"}
-                        text={isSM ? "افزودن به سبد خرید" : "افزودن"}
-                        color={"var(--neutral-white)"}
-                        hoverBg={"var(--green-green-shade-10)"}
-                        width={isSM ? "244px" : "100px"}
-                        thin={true}
-                    />
-                </div>
+
             </div>
             {showFullScreenFood && (
                 <FoodShowScreen food={food} setShowFullScreenFood={setShowFullScreenFood} />
             )}
-        </div>
+        </>
     )
 })
 
