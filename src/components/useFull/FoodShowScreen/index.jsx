@@ -21,9 +21,12 @@ const FoodShowScreen = ({ food, setShowFullScreenFood }) => {
         <div className={styles.details}>
           <div className={styles.description}>
             <h3>{food.foodName}</h3>
-            <span style={{fontSize: "var(--small-desktop)", color: "var(--neutral-757575)"}}>{food.description}</span>
+            <span style={{ fontSize: "var(--small-desktop)", color: "var(--neutral-757575)" }}>{food.description}</span>
           </div>
-          <Stars score={food.score} />
+          <div>
+            <Stars score={food.score} />
+            <span style={{color: "var(--neutral-757575)"}}>{`(${food.comments.length.toLocaleString("fa-IR")}`} نظر)</span>
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@
   border: solid 1px var(--neutral-cbcbcb);
   background-color: var(--neutral-white);
   display: flex;
+  cursor: pointer;
 }
 
 .container img {
