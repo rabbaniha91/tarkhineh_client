@@ -1,4 +1,4 @@
-export const mainFoodCategory = ["غذای ایرانی", "غذای غیرایرانی", "پیتزا", "ساندویچ"]
+export const mainFoodCategory = ["غذای ایرانی", "غذای غیر ایرانی", "پیتزا", "ساندویچ"]
 
 export const mainFoodData = [
     {
@@ -131,7 +131,7 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 35
     },
     {
         "foodName": "کوکو سیب زمینی و عدس",

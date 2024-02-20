@@ -21,9 +21,15 @@
   gap: 4px;
 }
 
+.title{
+  margin: 48px 0 24px 0;
+  font-size: var(--h5-desktop);
+}
 .food_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: wrap;
+  margin: 24px 0; 
 }

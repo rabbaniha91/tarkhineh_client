@@ -1,24 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./styles.module.css"
 import { IoIosArrowBack } from "react-icons/io";
 import FoodCart from '../useFull/FoodCart';
 
 
 const MenuFoods = ({ category, foolData }) => {
-    
+
+    useEffect(() => {
+    }, [])
+
     return (
         <div className={styles.container}>
             <div className={styles.category}>
                 {category?.map((item, index) => (
-                    <a href={`#${index}`} key={item}>
+                    <a href={`#${item}`} key={item}>
                         {item}
                         <IoIosArrowBack size={20} color='var(--neutral-717171)' />
                     </a>
                 ))}
             </div>
-            <div className={styles.food_container}>
-                <FoodCart food={foolData[0]} />
-                <FoodCart food={foolData[1]} />
+            <div className={""}>
+                {category?.map(item => (
+                    <>
+                        <h5 id={`${item}`} className={styles.title}>{item}</h5>
+                        <div className={styles.food_container}>
+                            {foolData.map(food => {
+                                if (food.subCategory === item) {
+                                    return <FoodCart food={food} key={food.foodName} />
+                                }
+                            })}
+                        </div>
+                    </>
+                ))}
             </div>
         </div>
     )

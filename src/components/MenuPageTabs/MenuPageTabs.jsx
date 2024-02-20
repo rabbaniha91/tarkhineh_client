@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./styles.module.css"
 import { useLocation } from 'react-router-dom'
 
-const MenuPageTabs = () => {
+const MenuPageTabs = ({ setMenuTitle }) => {
     const location = useLocation()
     const [stage, setStage] = useState("")
 
@@ -13,6 +13,14 @@ const MenuPageTabs = () => {
             setStage("")
         }
     }, [location.state])
+
+    useEffect(() => {
+        if (location.state !== "") {
+            setMenuTitle(location.state)
+        } else if (stage !== "") {
+            setMenuTitle(stage)
+        }
+    }, [location.state, stage])
 
 
 
