@@ -49,13 +49,24 @@
 @media screen and (min-width: 768px) and (max-width: 820px) {
   .title {
     width: 80%;
-     margin: 48px auto 24px auto;
+    margin: 48px auto 24px auto;
+  }
+
+  .category {
+    width: 80%;
+    margin: 48px auto 24px auto;
+    flex-wrap: wrap;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 821px) and (max-width: 1024px) {
   .title {
     width: 60%;
-     margin: 48px auto 24px auto;
+    margin: 48px auto 24px auto;
+  }
+
+  .category {
+    width: 60%;
+    margin: 48px auto 24px auto;
   }
 }
