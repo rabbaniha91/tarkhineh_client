@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import styles from "./styles.module.css"
 
 const Buttons = ({
-    text, bgColor, icon, color, hoverBg, border = false,
+    text, bgColor, icon, color, hoverBg, border = false, thin = false,
     borderColor, dualIcons, exteraRadius = true, disabled = false, type, width
 }) => {
     const buttonRef = useRef(null)
@@ -19,7 +19,7 @@ const Buttons = ({
                 buttonRef.current.style.backgroundColor = bgColor
             }}
             style={{
-                padding: "12px 32px",
+                padding: !thin ? "12px 32px" : "8px 28px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

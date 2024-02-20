@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { CiStar } from "react-icons/ci";
 import Buttons from "../../useFull/Buttons/Buttons"
 import styles from "./styles.module.css"
+import useScreenSize from '../../../hooks/useScreenSize';
 
 const FoodCart = React.memo(({ food }) => {
+    const { isSM } = useScreenSize()
     const [priceWithOffer, setPriceWithOffer] = useState(null)
     useEffect(() => {
         if (food.offer > 0) {
@@ -46,18 +48,19 @@ const FoodCart = React.memo(({ food }) => {
                 </div>
                 <div className={styles.bottom}>
                     <div>
-                        <CiStar size={24} />
-                        <CiStar size={24} />
-                        <CiStar size={24} />
-                        <CiStar size={24} />
-                        <CiStar size={24} />
+                        <CiStar size={isSM ? 24 : 18} />
+                        <CiStar size={isSM ? 24 : 18} />
+                        <CiStar size={isSM ? 24 : 18} />
+                        <CiStar size={isSM ? 24 : 18} />
+                        <CiStar size={isSM ? 24 : 18} />
                     </div>
                     <Buttons
                         bgColor={"var(--green-primary)"}
-                        text={"افزودن به سبد خرید"}
+                        text={isSM ? "افزودن به سبد خرید" : "افزودن"}
                         color={"var(--neutral-white)"}
                         hoverBg={"var(--green-green-shade-10)"}
-                        width={"244px"}
+                        width={isSM ? "244px" : "100px"}
+                        thin={true}
                     />
                 </div>
             </div>
