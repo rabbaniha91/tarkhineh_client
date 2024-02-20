@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import MenuItem from '../useFull/MenuItem'
 import TextInput from '../useFull/TextInput/TextInput'
 import useScreenSize from '../../hooks/useScreenSize'
+import { CiSearch } from "react-icons/ci"
 
 const HomeMenu = () => {
     const { isSM } = useScreenSize()
@@ -18,7 +19,9 @@ const HomeMenu = () => {
                     name="search"
                     borderColor="var(--neutral-black)"
                     outlined={true}
-                    bgColor="var(--neutral-white)" />
+                    bgColor="var(--neutral-white)"
+                    icon={<CiSearch size={34} />}
+                />
             )}
             <p className={styles.title}>منوی رستوران</p>
             <div className={styles.menu}>
