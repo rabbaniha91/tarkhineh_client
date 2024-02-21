@@ -134,9 +134,9 @@ const Navbar = () => {
           </Tooltip>
         )}
         <Tooltip style={{ position: "relative" }} placement='bottom' title="سبد خرید" color='var(--green-primary)'>
-          <div className={styles.icons}>
-            <CiShoppingCart size={24} color='var(--green-primary)' />
-          </div>
+          <Link to={"/cart"} className={`${styles.icons} ${url === "/cart" && styles.active_icon}`}>
+            <CiShoppingCart size={24} color={url === "/cart" ? "var(--neutral-white)" : 'var(--green-primary)'} />
+          </Link>
           {showCartNotif && (
             <span className={styles.notif}></span>
           )}

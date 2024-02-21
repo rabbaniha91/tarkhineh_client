@@ -75,8 +75,16 @@
   transition: all 0.3s ease-out;
 }
 
+.active_icon {
+  background-color: var(--green-primary);
+}
+
 .icons:hover {
   background-color: var(--green-green-tint-2);
+}
+
+.active_icon:hover{
+  background-color: var(--green-green-shade-10);
 }
 
 .login_before {
@@ -86,7 +94,7 @@
   z-index: 9998;
 }
 
-.notif{
+.notif {
   position: absolute;
   top: 35%;
   left: 10.5%;
