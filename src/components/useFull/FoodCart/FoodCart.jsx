@@ -6,11 +6,13 @@ import useScreenSize from '../../../hooks/useScreenSize';
 import FoodShowScreen from '../FoodShowScreen';
 import Stars from '../Stars';
 import { saveFoodsToLocalStorage } from "../../../utils"
+import { useContentProvider } from '../../../Context/provider';
 
 const FoodCart = React.memo(({ food }) => {
     const { isSM } = useScreenSize()
     const [priceWithOffer, setPriceWithOffer] = useState(null)
     const [showFullScreenFood, setShowFullScreenFood] = useState(false)
+    const { setShowCartNotif } = useContentProvider()
 
     useEffect(() => {
         if (food.offer > 0) {
@@ -19,9 +21,7 @@ const FoodCart = React.memo(({ food }) => {
         }
     }, [])
 
-    useEffect(() => {
-        console.log(showFullScreenFood)
-    }, [showFullScreenFood])
+
 
     return (
         <>
@@ -68,6 +68,7 @@ const FoodCart = React.memo(({ food }) => {
                             width={isSM ? "244px" : "100px"}
                             thin={true}
                             onClick={() => {
+                                setShowCartNotif(true)
                                 saveFoodsToLocalStorage(food)
                             }}
                         />

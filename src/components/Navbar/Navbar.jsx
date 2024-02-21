@@ -11,6 +11,7 @@ import { branchesitem, menuItem, userMenuItem } from "../../data/data.jsx"
 import Login from '../Login/Login.jsx'
 import CustomDrawer from '../useFull/Drawer/CustomDrawer.jsx'
 import { useContentProvider } from "../../Context/provider"
+import { checkCartItems } from '../../utils.js'
 
 
 
@@ -24,7 +25,7 @@ const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false)
   const [open, setOpen] = useState(false)
 
-  const { showCartNotif } = useContentProvider()
+  const { showCartNotif, setShowCartNotif } = useContentProvider()
 
   useEffect(() => {
     setUrl(location.pathname)
@@ -43,6 +44,11 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [document.documentElement.scrollTop])
+
+
+  useEffect(() => {
+    setShowCartNotif(checkCartItems())
+  }, [])
 
   return (
     <div className={`${styles.container} ${isScroll && styles.scrolled_navbar}`}>
