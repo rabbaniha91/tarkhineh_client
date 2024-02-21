@@ -15,3 +15,4 @@ export const saveFoodsToLocalStorage = (food) => {
 
     localStorage.setItem("cartItems", JSON.stringify(foods))
 }
+

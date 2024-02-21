@@ -10,6 +10,7 @@ import { Dropdown, Space, Button } from "antd"
 import { branchesitem, menuItem, userMenuItem } from "../../data/data.jsx"
 import Login from '../Login/Login.jsx'
 import CustomDrawer from '../useFull/Drawer/CustomDrawer.jsx'
+import { useContentProvider } from "../../Context/provider"
 
 
 
@@ -22,6 +23,8 @@ const Navbar = () => {
   const [loginUser, setLoginUser] = useState(false)
   const [isScroll, setIsScroll] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const { showCartNotif } = useContentProvider()
 
   useEffect(() => {
     setUrl(location.pathname)
@@ -124,10 +127,13 @@ const Navbar = () => {
             </div>
           </Tooltip>
         )}
-        <Tooltip placement='bottom' title="سبد خرید" color='var(--green-primary)'>
+        <Tooltip style={{ position: "relative" }} placement='bottom' title="سبد خرید" color='var(--green-primary)'>
           <div className={styles.icons}>
             <CiShoppingCart size={24} color='var(--green-primary)' />
           </div>
+          {showCartNotif && (
+            <span className={styles.notif}></span>
+          )}
         </Tooltip>
         {!loginUser && (
           <Tooltip placement='bottom' title="ورود / ثبت نام" color='var(--green-primary)'>
