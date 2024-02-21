@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import styles from "./styles.module.css"
 
 const Buttons = ({
-    text, bgColor, icon, color, hoverBg, border = false, thin = false,
+    text, bgColor, icon, color, hoverBg, border = false, thin = false, onClick,
     borderColor, dualIcons, exteraRadius = true, disabled = false, type, width
 }) => {
     const buttonRef = useRef(null)
@@ -10,6 +10,7 @@ const Buttons = ({
     return (
         <button
             className={styles.button}
+            onClick={onClick}
             type={type}
             ref={buttonRef}
             onMouseEnter={() => {

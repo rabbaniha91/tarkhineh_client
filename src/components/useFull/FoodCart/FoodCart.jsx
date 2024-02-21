@@ -5,6 +5,7 @@ import styles from "./styles.module.css"
 import useScreenSize from '../../../hooks/useScreenSize';
 import FoodShowScreen from '../FoodShowScreen';
 import Stars from '../Stars';
+import { saveFoodsToLocalStorage } from "../../../utils"
 
 const FoodCart = React.memo(({ food }) => {
     const { isSM } = useScreenSize()
@@ -66,6 +67,9 @@ const FoodCart = React.memo(({ food }) => {
                             hoverBg={"var(--green-green-shade-10)"}
                             width={isSM ? "244px" : "100px"}
                             thin={true}
+                            onClick={() => {
+                                saveFoodsToLocalStorage(food)
+                            }}
                         />
                     </div>
                 </div>
