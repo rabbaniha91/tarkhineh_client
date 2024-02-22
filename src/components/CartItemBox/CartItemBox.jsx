@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from "./styles.module.css"
 
 const CartItemBox = () => {
   return (
-    <div>CartItemBox</div>
+    <div className={styles.container}>CartItemBox</div>
   )
 }
 
