@@ -18,7 +18,11 @@ export const saveFoodsToLocalStorage = (food) => {
 
 export const checkCartItems = () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems"))
-
     if (cartItems === null || cartItems.length === 0) return false
     else return true
+}
+
+
+export const getCartItems = () => {
+    return JSON.parse(localStorage.getItem("cartItems"))
 }
