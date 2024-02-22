@@ -1,0 +1,44 @@
+.container {
+  max-width: 1224px;
+  margin: 178px auto 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps_sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-primary);
+  /* margin: 0 4px; */
+}
+
+
+
+.icons {
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  margin: 0 8px;
+}
+
+.text{
+    margin-left: 8px;
+}
+
+.solid_line {
+  width: 250px;
+  height: 0.05px;
+  border: 0.05px solid var(--neutral-black);
+}
+
+@keyframes inProggress {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(140deg);
+  }
+}
