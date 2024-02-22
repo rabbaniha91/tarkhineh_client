@@ -10,4 +10,24 @@
 .empty_container {
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.text {
+  color: var(--neutral-757575);
+}
+
+.link_to_menu {
+  text-decoration: none;
+  padding: 8px 48px;
+  border: 0.5px solid var(--green-primary);
+  text-align: center;
+  color: var(--green-primary);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.link_to_menu:hover{
+    box-shadow: 1px 1px 6px 0 var(--green-primary), -1px -1px 6px 0 var(--green-primary);
 }
