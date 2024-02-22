@@ -14,13 +14,13 @@ const CartItemBox = () => {
         <div
             className={`
         ${styles.container} 
-        ${cartItems === null && styles.empty_container}
+        ${cartItems === null && styles.center_container}
         `}>
             {cartItems === null ? (
-                <>
+                <div className={styles.empty_container}>
                     <span className={styles.text}>شما در حال حاضر هیچ سفارشی ثبت نکرده اید!</span>
-                    <Link to={"/menu"} className={styles.link_to_menu}>منوی رستوران</Link>
-                </>
+                    <Link to={"/menu"} state={1} className={styles.link_to_menu}>منوی رستوران</Link>
+                </div>
             ) : ""}
         </div>
     )

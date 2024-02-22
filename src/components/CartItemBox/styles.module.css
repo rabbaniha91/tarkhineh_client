@@ -7,11 +7,21 @@
   display: flex;
 }
 
+.center_container {
+  align-items: center;
+  justify-content: center;
+  background-image: url("/images/Empty\ page.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .empty_container {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 36px;
+  
 }
 
 .text {
@@ -28,6 +38,7 @@
   transition: all 0.3s ease;
 }
 
-.link_to_menu:hover{
-    box-shadow: 1px 1px 6px 0 var(--green-primary), -1px -1px 6px 0 var(--green-primary);
+.link_to_menu:hover {
+  box-shadow: 1px 1px 6px 0 var(--green-primary),
+    -1px -1px 6px 0 var(--green-primary);
 }
