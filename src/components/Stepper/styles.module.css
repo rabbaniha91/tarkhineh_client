@@ -45,3 +45,20 @@
     transform: rotate(140deg);
   }
 }
+
+
+@media screen and (max-width:1024px) {
+  .solid_line{
+    width: 220px;
+  }
+}
+@media screen and (max-width:820px) {
+  .solid_line{
+    width: 220px;
+  }
+}
+@media screen and (max-width:768px) {
+  .solid_line{
+    width: 160px;
+  }
+}

@@ -42,3 +42,9 @@
   box-shadow: 1px 1px 6px 0 var(--green-primary),
     -1px -1px 6px 0 var(--green-primary);
 }
+
+@media screen and (max-width:1024px) {
+    .container{
+        margin: 24px 1rem 48px;
+    }
+}
