@@ -1,13 +1,14 @@
 .container {
-  max-width: 1224px;
   margin: 24px auto 48px;
-  min-height: 422px;
-  border: 0.5px solid var(--neutral-cbcbcb);
-  border-radius: 4px;
   display: flex;
 }
 
+/* empty cart */
 .center_container {
+  border: 0.5px solid var(--neutral-cbcbcb);
+  max-width: 1224px;
+  border-radius: 4px;
+  height: 422px;
   align-items: center;
   justify-content: center;
   background-image: url("/images/Empty\ page.svg");
@@ -21,7 +22,6 @@
   justify-content: center;
   flex-direction: column;
   gap: 36px;
-  
 }
 
 .text {
@@ -43,8 +43,23 @@
     -1px -1px 6px 0 var(--green-primary);
 }
 
-@media screen and (max-width:1024px) {
-    .container{
-        margin: 24px 1rem 48px;
-    }
+/* fill cart */
+
+.food_container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 0.5px solid var(--neutral-cbcbcb);
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin: 24px 1rem 48px;
+  }
 }
