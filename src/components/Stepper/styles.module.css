@@ -10,11 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--green-primary);
-  /* margin: 0 4px; */
+  color: var(--neutral-cbcbcb);
 }
-
-
 
 .icons {
   width: 30px;
@@ -23,14 +20,20 @@
   margin: 0 8px;
 }
 
-.text{
-    margin-left: 8px;
+.text {
+  margin-left: 8px;
+  color: var(--neutral-cbcbcb);
+}
+
+.active_state {
+  color: var(--green-primary);
+  font-weight: bold;
 }
 
 .solid_line {
   width: 250px;
   height: 0.05px;
-  border: 0.05px solid var(--neutral-black);
+  border: 0.05px dashed var(--neutral-cbcbcb);
 }
 
 @keyframes inProggress {
