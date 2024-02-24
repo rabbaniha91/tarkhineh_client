@@ -11,7 +11,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 20
+        "offer": 20,
+        "count": 1
     },
     {
         "foodName": "فلافل",
@@ -23,7 +24,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "بورانی بادمجان",
@@ -35,7 +37,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "2",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "دلمه برگ کلم",
@@ -47,7 +50,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "میرزا قاسمی",
@@ -59,7 +63,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "کوکوسبزی",
@@ -71,7 +76,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "کشک بادمجان",
@@ -83,7 +89,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "باقلا قایق",
@@ -95,7 +102,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "کله جوش",
@@ -107,7 +115,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "1",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "بادمجان شکم پر",
@@ -119,7 +128,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "دلمه برگ مو",
@@ -131,7 +141,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 35
+        "offer": 35,
+        "count": 1
     },
     {
         "foodName": "کوکو سیب زمینی و عدس",
@@ -143,7 +154,8 @@ export const mainFoodData = [
         "subCategory": "غذای ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پاستا سبزیجات",
@@ -155,7 +167,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "راتاتویی",
@@ -167,7 +180,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "سوشی",
@@ -179,7 +193,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "کالزونه اسفناج",
@@ -191,7 +206,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پاستا بلونز",
@@ -203,7 +219,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "لازانیا",
@@ -215,7 +232,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پاکورا سبزیجات",
@@ -227,7 +245,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پالاک پنیر",
@@ -239,7 +258,8 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "1",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا روکولا",
@@ -251,7 +271,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "1",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا سبزیجات و خامه",
@@ -263,7 +284,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "2",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا پپرونی",
@@ -275,7 +297,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا مارگار",
@@ -287,7 +310,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "4",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا بادمجان و زیتون",
@@ -299,7 +323,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "2",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا قارچ",
@@ -311,7 +336,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا اسفناج",
@@ -323,7 +349,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "1",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پیتزا پنیر",
@@ -335,7 +362,8 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "ساندویچ کتلت مخصوص",
@@ -347,7 +375,8 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "ساندویچ کتلت کدو سبز",
@@ -359,7 +388,8 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "2",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "ساندویچ سوسیس کوکتل",
@@ -371,7 +401,8 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "5",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     },
     {
         "foodName": "پنینی اسفناج",
@@ -383,6 +414,7 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "3",
         "comments": "",
-        "offer": 0
+        "offer": 0,
+        "count": 1
     }
 ]

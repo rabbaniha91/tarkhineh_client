@@ -5,7 +5,8 @@ import styles from "./styles.module.css"
 import useScreenSize from '../../../hooks/useScreenSize';
 import FoodShowScreen from '../FoodShowScreen';
 import Stars from '../Stars';
-import { saveFoodsToLocalStorage } from "../../../utils"
+import { saveFoodsToLocalStorage, addFoodCounts } from "../../../utils"
+
 import { useContentProvider } from '../../../Context/provider';
 import { GoTrash } from "react-icons/go";
 import { GoPlus } from "react-icons/go";
@@ -14,91 +15,118 @@ import { FiMinus } from "react-icons/fi";
 
 const FoodCart = React.memo(({ food, state = 1 }) => {
     const { isSM } = useScreenSize()
+    const [currentFood, setCurrentFood] = useState("")
     const [priceWithOffer, setPriceWithOffer] = useState(null)
     const [showFullScreenFood, setShowFullScreenFood] = useState(false)
     const [showState, setShowState] = useState("")
+    const [count, setCount] = useState("")
     const { setShowCartNotif } = useContentProvider()
 
     useEffect(() => {
-        if (food.offer > 0) {
-            const offerPrice = parseInt(food.price) * ((100 - food.offer) / 100)
-            setPriceWithOffer(offerPrice)
+        setCurrentFood(food)
+    }, [food])
+    useEffect(() => {
+        if (currentFood) {
+            if (currentFood.offer > 0) {
+                const offerPrice = parseInt(currentFood.price) * ((100 - currentFood.offer) / 100)
+                setPriceWithOffer(offerPrice)
+
+            }
         }
         setShowState(state)
 
-    }, [])
+    }, [currentFood])
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            console.log("first")
+            const foods = JSON.parse(localStorage.getItem("cartItems"));
+            const currentFoodFromStorage = foods.find(food => food.foodName === currentFood.foodName);
+            setCurrentFood(currentFoodFromStorage);
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
 
-
+    // useEffect(() => {
+    //     setCount(currentFood?.count)
+    // }, [count, currentFood])
 
     return (
-        <>
-            <div className={styles.container} style={{ width: showState === 2 && "100%" }}>
-                <img
-                    src={food.cover} alt="cover"
-                    onClick={() => setShowFullScreenFood(true)} />
-                {showState === 2 && (
-                    <GoTrash size={20} className={styles.trash} />
-                )}
-                <div className={styles.content_container}>
-                    <div >
-                        <h5 onClick={() => setShowFullScreenFood(true)}>{food.foodName}</h5>
-                        <div className={styles.inner_content_container}>
-                            <p onClick={() => setShowFullScreenFood(true)}>{food.description}</p>
-
-                            {priceWithOffer !== null ? (
-                                <div className={styles.price_container}>
-                                    <div>
-                                        <span className={styles.offer}>{
-                                            `%${food.offer.toLocaleString("fa-IR")}`}
-                                        </span>
-                                        <span className={styles.old_price}>
-                                            {parseInt(food.price).toLocaleString("fa-IR")}
-                                        </span>
-                                    </div>
-                                    <span className={styles.new_price}>
-                                        {priceWithOffer?.toLocaleString("fa-IR")}
-                                        <span>تومان</span>
+        <><div className={styles.container} style={{ width: showState === 2 && "100%" }}>
+            <img
+                src={currentFood?.cover} alt="cover"
+                onClick={() => setShowFullScreenFood(true)} />
+            {showState === 2 && (
+                <GoTrash size={20} className={styles.trash} />
+            )}
+            <div className={styles.content_container}>
+                <div >
+                    <h5 onClick={() => setShowFullScreenFood(true)}>{currentFood?.foodName}</h5>
+                    <div className={styles.inner_content_container}>
+                        <p onClick={() => setShowFullScreenFood(true)}>{currentFood?.description}</p>
+                        {priceWithOffer !== null ? (
+                            <div className={styles.price_container}>
+                                <div>
+                                    <span className={styles.offer}>{
+                                        `%${currentFood?.offer.toLocaleString("fa-IR")}`}
+                                    </span>
+                                    <span className={styles.old_price}>
+                                        {parseInt(currentFood?.price).toLocaleString("fa-IR")}
                                     </span>
                                 </div>
-                            )
-                                :
-                                <span className={styles.price}>
-                                    {parseInt(food.price).toLocaleString("fa-IR")}
+                                <span className={styles.new_price}>
+                                    {priceWithOffer?.toLocaleString("fa-IR")}
                                     <span>تومان</span>
                                 </span>
-                            }
-
-                        </div>
-                    </div>
-                    <div className={styles.bottom}>
-                        <Stars score={food.score} />
-                        {showState === 1 && (
-                            <Buttons
-                                bgColor={"var(--green-primary)"}
-                                text={isSM ? "افزودن به سبد خرید" : "افزودن"}
-                                color={"var(--neutral-white)"}
-                                hoverBg={"var(--green-green-shade-10)"}
-                                width={isSM ? "244px" : "100px"}
-                                thin={true}
-                                onClick={() => {
-                                    setShowCartNotif(true)
-                                    saveFoodsToLocalStorage(food)
-                                }}
-                            />
-                        )}
+                            </div>
+                        )
+                            :
+                            <span className={styles.price}>
+                                {parseInt(currentFood?.price).toLocaleString("fa-IR")}
+                                <span>تومان</span>
+                            </span>
+                        }
                     </div>
                 </div>
-                {showState === 2 && (
-                    <div className={styles.count}>
-                        <GoPlus style={{ cursor: "pointer" }} />
-                        <span>0</span>
-                        <FiMinus style={{ cursor: "pointer" }} />
-                    </div>
-                )}
+                <div className={styles.bottom}>
+                    <Stars score={currentFood?.score} />
+                    {showState === 1 && (
+                        <Buttons
+                            bgColor={"var(--green-primary)"}
+                            text={isSM ? "افزودن به سبد خرید" : "افزودن"}
+                            color={"var(--neutral-white)"}
+                            hoverBg={"var(--green-green-shade-10)"}
+                            width={isSM ? "244px" : "100px"}
+                            thin={true}
+                            onClick={() => {
+                                setShowCartNotif(true)
+                                saveFoodsToLocalStorage(currentFood)
+                            }}
+                        />
+                    )}
+                </div>
             </div>
+            {showState === 2 && (
+                <div className={styles.count}>
+                    <GoPlus
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                            addFoodCounts(currentFood?.foodName)
+                        }}
+                    />
+                    <span>{currentFood?.count.toLocaleString("fa-IR")}</span>
+                    <FiMinus style={{ cursor: "pointer" }} />
+                </div>
+            )}
+        </div>
             {showFullScreenFood && (
-                <FoodShowScreen food={food} setShowFullScreenFood={setShowFullScreenFood} />
+                <FoodShowScreen food={currentFood} setShowFullScreenFood={setShowFullScreenFood} />
             )}
         </>
     )

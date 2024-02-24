@@ -26,3 +26,14 @@ export const checkCartItems = () => {
 export const getCartItems = () => {
     return JSON.parse(localStorage.getItem("cartItems"))
 }
+
+export const addFoodCounts = (name) => {
+    const foods = JSON.parse(localStorage.getItem("cartItems"))
+    if (foods !== null) {
+        const newFoods = foods.map(food => {
+            food.foodName === name && food.count++
+            return food
+        })
+        localStorage.setItem("cartItems", JSON.stringify(newFoods))
+    }
+}
