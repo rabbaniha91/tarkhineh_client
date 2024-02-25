@@ -49,6 +49,8 @@ const Login = ({ setShow }) => {
 
     }, [formik.values.mobileNumber])
 
+   
+
 
     return (
         <div className={styles.before}>
@@ -72,13 +74,13 @@ const Login = ({ setShow }) => {
                                 placeholder="شماره همراه"
                                 width="100%"
                                 name="mobileNumber"
-                                type="phone"
+                                type="text"
                                 borderColor="var(--neutral-black)"
                                 outlined={true}
                                 bgColor="var(--neutral-white)"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.mobileNumber}
+                                value={persianMobileNumber}
                                 error={formik.errors.mobileNumber}
                             />
                             {formik.dirty && formik.errors.mobileNumber && (
