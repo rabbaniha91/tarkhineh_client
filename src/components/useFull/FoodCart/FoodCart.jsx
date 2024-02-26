@@ -11,6 +11,7 @@ import { useContentProvider } from '../../../Context/provider';
 import { GoTrash } from "react-icons/go";
 import { GoPlus } from "react-icons/go";
 import { FiMinus } from "react-icons/fi";
+import DeleteFood from '../DeleteFood';
 
 
 const FoodCart = React.memo(({ food, state = 1 }) => {
@@ -19,6 +20,8 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
     const [priceWithOffer, setPriceWithOffer] = useState(null)
     const [showFullScreenFood, setShowFullScreenFood] = useState(false)
     const [showState, setShowState] = useState("")
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+
     const { setShowCartNotif } = useContentProvider()
 
     useEffect(() => {
@@ -44,7 +47,11 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                 src={currentFood?.cover} alt="cover"
                 onClick={() => setShowFullScreenFood(true)} />
             {showState === 2 && (
-                <GoTrash size={20} className={styles.trash} />
+                <GoTrash
+                    size={20}
+                    className={styles.trash}
+                    onClick={() => setShowDeleteModal(true)}
+                />
             )}
             <div className={styles.content_container}>
                 <div >
@@ -113,6 +120,9 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
         </div>
             {showFullScreenFood && (
                 <FoodShowScreen food={currentFood} setShowFullScreenFood={setShowFullScreenFood} />
+            )}
+            {showDeleteModal && (
+                <DeleteFood foodName={currentFood?.foodName} setShowDeleteModal={setShowDeleteModal} oneFood={true}/>
             )}
         </>
     )

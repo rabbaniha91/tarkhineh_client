@@ -48,3 +48,15 @@ export const decreaseFoodCount = (name) => {
         localStorage.setItem("cartItems", JSON.stringify(newFoods))
     }
 }
+
+
+export const deleteFoodFromCart = (name) => {
+    const foods = getCartItems()
+    if (foods !== null) {
+        const newFoods = foods.filter(food => {
+            return food.foodName !== name
+        })
+
+        localStorage.setItem("cartItems", JSON.stringify(newFoods))
+    }
+}
