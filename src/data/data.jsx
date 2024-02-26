@@ -65,7 +65,7 @@ export const branchesitem = [
 export const menuItem = [
     {
         label: (
-            <Link to={"/menu"} state={1} style={{ width: "144px" }}>
+            <Link to={"/menu"} state={1} style={{ width: "144px", display:"inline-block" }}>
                 غذای اصلی
             </Link>
         ),

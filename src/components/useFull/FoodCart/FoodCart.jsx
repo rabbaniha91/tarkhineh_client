@@ -19,12 +19,14 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
     const [priceWithOffer, setPriceWithOffer] = useState(null)
     const [showFullScreenFood, setShowFullScreenFood] = useState(false)
     const [showState, setShowState] = useState("")
-    const [count, setCount] = useState("")
     const { setShowCartNotif } = useContentProvider()
 
     useEffect(() => {
         setCurrentFood(food)
+        setShowState(state)
     }, [food])
+
+
     useEffect(() => {
         if (currentFood) {
             if (currentFood.offer > 0) {
@@ -33,29 +35,8 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
 
             }
         }
-        setShowState(state)
 
     }, [currentFood])
-
-    useEffect(() => {
-        const handleStorageChange = () => {
-            console.log("first")
-            const foods = JSON.parse(localStorage.getItem("cartItems"));
-            const currentFoodFromStorage = foods.find(food => food.foodName === currentFood.foodName);
-            setCurrentFood(currentFoodFromStorage);
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-        };
-    }, []);
-
-
-    // useEffect(() => {
-    //     setCount(currentFood?.count)
-    // }, [count, currentFood])
 
     return (
         <><div className={styles.container} style={{ width: showState === 2 && "100%" }}>
