@@ -109,10 +109,7 @@ const FoodCart = React.memo(({ food, state = 1, setCartItems }) => {
                         onClick={() => {
                             increaseFoodCounts(currentFood?.foodName)
                             const newCartItems = getCartItems()
-                            const currentItem = newCartItems.filter(item => {
-                                return item.foodName === currentFood.foodName
-                            })
-                            setCurrentFood(currentItem[0])
+                            setCartItems(newCartItems)
                         }}
                     />
                     <span>{currentFood?.count.toLocaleString("fa-IR")}</span>
@@ -121,10 +118,7 @@ const FoodCart = React.memo(({ food, state = 1, setCartItems }) => {
                         onClick={() => {
                             decreaseFoodCount(currentFood?.foodName)
                             const newCartItems = getCartItems()
-                            const currentItem = newCartItems.filter(item => {
-                                return item.foodName === currentFood.foodName
-                            })
-                            setCurrentFood(currentItem[0])
+                            setCartItems(newCartItems)
                         }}
                     />
                 </div>

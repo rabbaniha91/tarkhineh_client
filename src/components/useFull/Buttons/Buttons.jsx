@@ -37,9 +37,10 @@ const Buttons = ({
             }}
             disabled={disabled}
         >
-            {dualIcons && icon}
-            {text}
             {icon}
+            {text}
+            {dualIcons && icon}
+
         </button >
     )
 }

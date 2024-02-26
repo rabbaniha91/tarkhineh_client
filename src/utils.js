@@ -60,3 +60,26 @@ export const deleteFoodFromCart = (name) => {
         localStorage.setItem("cartItems", JSON.stringify(newFoods))
     }
 }
+
+export const calculateOffers = (array) => {
+    let offers = 0
+    array.forEach(item => {
+        if (item.offer > 0) {
+            offers += (item.price * (item.offer / 100)) * item.count
+        }
+    })
+    return offers;
+}
+
+export const calculateTotalPrice = (array) => {
+    let totalPrice = 0;
+    array.forEach(item => {
+        if (item.offer > 0) {
+            totalPrice += (item.price * ((100 - item.offer) / 100) * item.count)
+        } else {
+            totalPrice += item.price * item.count
+        }
+    })
+
+    return totalPrice
+}

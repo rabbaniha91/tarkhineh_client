@@ -4,6 +4,7 @@
   align-items: flex-start;
   justify-content: space-between;
   max-width: 1224px;
+  gap: 24px;
 }
 
 /* empty cart */
