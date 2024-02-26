@@ -1,10 +1,13 @@
 .container {
   margin: 24px auto 48px;
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   max-width: 1224px;
 }
 
 /* empty cart */
+
 .center_container {
   border: 0.5px solid var(--neutral-cbcbcb);
   border-radius: 4px;

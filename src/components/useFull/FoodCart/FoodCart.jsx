@@ -5,7 +5,7 @@ import styles from "./styles.module.css"
 import useScreenSize from '../../../hooks/useScreenSize';
 import FoodShowScreen from '../FoodShowScreen';
 import Stars from '../Stars';
-import { saveFoodsToLocalStorage, increaseFoodCounts, decreaseFoodCount } from "../../../utils"
+import { saveFoodsToLocalStorage, increaseFoodCounts, decreaseFoodCount, getCartItems } from "../../../utils"
 
 import { useContentProvider } from '../../../Context/provider';
 import { GoTrash } from "react-icons/go";
@@ -27,7 +27,7 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
     useEffect(() => {
         setCurrentFood(food)
         setShowState(state)
-    }, [food])
+    }, [food, setCurrentFood, setShowState])
 
 
     useEffect(() => {
@@ -40,6 +40,8 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
         }
 
     }, [currentFood])
+
+
 
     return (
         <><div className={styles.container} style={{ width: showState === 2 && "100%" }}>
@@ -106,6 +108,11 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                             increaseFoodCounts(currentFood?.foodName)
+                            const newCartItems = getCartItems()
+                            const currentItem = newCartItems.filter(item => {
+                                return item.foodName === currentFood.foodName
+                            })
+                            setCurrentFood(currentItem[0])
                         }}
                     />
                     <span>{currentFood?.count.toLocaleString("fa-IR")}</span>
@@ -113,6 +120,11 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                             decreaseFoodCount(currentFood?.foodName)
+                            const newCartItems = getCartItems()
+                            const currentItem = newCartItems.filter(item => {
+                                return item.foodName === currentFood.foodName
+                            })
+                            setCurrentFood(currentItem[0])
                         }}
                     />
                 </div>
@@ -122,7 +134,7 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                 <FoodShowScreen food={currentFood} setShowFullScreenFood={setShowFullScreenFood} />
             )}
             {showDeleteModal && (
-                <DeleteFood foodName={currentFood?.foodName} setShowDeleteModal={setShowDeleteModal} oneFood={true}/>
+                <DeleteFood foodName={currentFood?.foodName} setShowDeleteModal={setShowDeleteModal} oneFood={true} />
             )}
         </>
     )

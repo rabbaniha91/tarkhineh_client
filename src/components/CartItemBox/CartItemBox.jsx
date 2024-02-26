@@ -7,14 +7,17 @@ import useScreenSize from '../../hooks/useScreenSize'
 import { GoPlus, GoTrash } from 'react-icons/go'
 import { FiMinus } from 'react-icons/fi'
 import DeleteFood from '../useFull/DeleteFood'
+import CheckOutBox from '../CheckOutBox'
 
 const CartItemBox = () => {
     const { isSM } = useScreenSize()
     const [cartItems, setCartItems] = useState(null)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+
     useEffect(() => {
         setCartItems(getCartItems())
-    }, [getCartItems()])
+    }, [getCartItems])
+
 
 
     return (
@@ -36,6 +39,7 @@ const CartItemBox = () => {
                         ))}
                     </div>
                 ) : ""}
+                <CheckOutBox foods={cartItems} />
             </div>
             {cartItems !== null && !isSM && (
                 <div className={styles.mobile_container}>
@@ -52,6 +56,8 @@ const CartItemBox = () => {
                                     style={{ cursor: "pointer" }}
                                     onClick={() => {
                                         increaseFoodCounts(food.foodName)
+                                        const newCartItems = getCartItems()
+                                        setCartItems(newCartItems)
                                     }}
                                 />
                                 <span>{food.count.toLocaleString("fa-IR")}</span>
@@ -60,6 +66,8 @@ const CartItemBox = () => {
                                         style={{ cursor: "pointer" }}
                                         onClick={() => {
                                             decreaseFoodCount(food.foodName)
+                                            const newCartItems = getCartItems()
+                                            setCartItems(newCartItems)
                                         }}
                                     />
                                 ) : (
