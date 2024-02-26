@@ -13,6 +13,8 @@ const CartItemBox = () => {
     const { isSM } = useScreenSize()
     const [cartItems, setCartItems] = useState(null)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [deleteItems, setDeleteItems] = useState(0)
+    const [index, setIndex] = useState(null)
 
     useEffect(() => {
         setCartItems(getCartItems())
@@ -35,7 +37,7 @@ const CartItemBox = () => {
                 ) : cartItems !== null && isSM ? (
                     <div className={styles.food_container}>
                         {cartItems?.length > 0 && cartItems?.map(food => (
-                            <FoodCart food={food} key={food.foodName} state={2} />
+                            <FoodCart food={food} key={food.foodName} state={2} setCartItems={setCartItems}/>
                         ))}
                     </div>
                 ) : ""}
@@ -43,9 +45,11 @@ const CartItemBox = () => {
             </div>
             {cartItems !== null && !isSM && (
                 <div className={styles.mobile_container}>
-                    {cartItems?.length > 0 && cartItems?.map(food => (
+                    {cartItems?.length > 0 && cartItems?.map((food, i) => (
                         <div key={food.foodName} className={styles.mobile_item_container}>
+
                             <div style={{ lineHeight: "2" }}>
+
                                 <h4>{food.foodName}</h4>
                                 <p>{food.offer === 0
                                     ? parseInt(food.price).toLocaleString("fa-IR")
@@ -74,17 +78,26 @@ const CartItemBox = () => {
                                     <GoTrash
                                         size={18}
                                         className={styles.trash}
-                                        onClick={() => setShowDeleteModal(true)}
+                                        onClick={() => {
+                                            setShowDeleteModal(true)
+                                            setIndex(i)
+                                        }}
                                     />
                                 )}
+
                             </div>
-                            {showDeleteModal && (
-                                <DeleteFood foodName={food?.foodName} setShowDeleteModal={setShowDeleteModal} oneFood={true} />
-                            )}
+
                         </div>
 
                     ))}
-
+                    {showDeleteModal && (
+                        <DeleteFood
+                            foodName={cartItems[index]?.foodName}
+                            setShowDeleteModal={setShowDeleteModal}
+                            oneFood={true}
+                            setCartItems={setCartItems}
+                        />
+                    )}
                 </div>
             )}
         </>

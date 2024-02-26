@@ -14,7 +14,7 @@ import { FiMinus } from "react-icons/fi";
 import DeleteFood from '../DeleteFood';
 
 
-const FoodCart = React.memo(({ food, state = 1 }) => {
+const FoodCart = React.memo(({ food, state = 1, setCartItems }) => {
     const { isSM } = useScreenSize()
     const [currentFood, setCurrentFood] = useState("")
     const [priceWithOffer, setPriceWithOffer] = useState(null)
@@ -134,7 +134,12 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                 <FoodShowScreen food={currentFood} setShowFullScreenFood={setShowFullScreenFood} />
             )}
             {showDeleteModal && (
-                <DeleteFood foodName={currentFood?.foodName} setShowDeleteModal={setShowDeleteModal} oneFood={true} />
+                <DeleteFood
+                    foodName={currentFood?.foodName}
+                    setShowDeleteModal={setShowDeleteModal}
+                    oneFood={true}
+                    setCartItems={setCartItems}
+                />
             )}
         </>
     )

@@ -2,9 +2,9 @@ import React from 'react'
 import styles from "./styles.module.css"
 import { IoIosClose } from 'react-icons/io'
 import Buttons from '../Buttons/Buttons'
-import { deleteFoodFromCart } from "../../../utils"
+import { deleteFoodFromCart, getCartItems } from "../../../utils"
 
-const DeleteFood = ({ foodName, setShowDeleteModal, oneFood }) => {
+const DeleteFood = ({ foodName, setShowDeleteModal, oneFood, setCartItems }) => {
     return (
         <div className={styles.before}>
             <div className={styles.container}>
@@ -36,6 +36,8 @@ const DeleteFood = ({ foodName, setShowDeleteModal, oneFood }) => {
                         onClick={() => {
                             deleteFoodFromCart(foodName)
                             setShowDeleteModal(false)
+                            const newCartItems = getCartItems()
+                            setCartItems(newCartItems)
                         }}
                     />
                 </div>
