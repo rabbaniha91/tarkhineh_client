@@ -5,7 +5,7 @@ import styles from "./styles.module.css"
 import useScreenSize from '../../../hooks/useScreenSize';
 import FoodShowScreen from '../FoodShowScreen';
 import Stars from '../Stars';
-import { saveFoodsToLocalStorage, addFoodCounts } from "../../../utils"
+import { saveFoodsToLocalStorage, increaseFoodCounts, decreaseFoodCount } from "../../../utils"
 
 import { useContentProvider } from '../../../Context/provider';
 import { GoTrash } from "react-icons/go";
@@ -98,11 +98,16 @@ const FoodCart = React.memo(({ food, state = 1 }) => {
                     <GoPlus
                         style={{ cursor: "pointer" }}
                         onClick={() => {
-                            addFoodCounts(currentFood?.foodName)
+                            increaseFoodCounts(currentFood?.foodName)
                         }}
                     />
                     <span>{currentFood?.count.toLocaleString("fa-IR")}</span>
-                    <FiMinus style={{ cursor: "pointer" }} />
+                    <FiMinus
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                            decreaseFoodCount(currentFood?.foodName)
+                        }}
+                    />
                 </div>
             )}
         </div>

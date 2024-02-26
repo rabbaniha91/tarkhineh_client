@@ -27,11 +27,22 @@ export const getCartItems = () => {
     return JSON.parse(localStorage.getItem("cartItems"))
 }
 
-export const addFoodCounts = (name) => {
-    const foods = JSON.parse(localStorage.getItem("cartItems"))
+export const increaseFoodCounts = (name) => {
+    const foods = getCartItems()
     if (foods !== null) {
         const newFoods = foods.map(food => {
             food.foodName === name && food.count++
+            return food
+        })
+        localStorage.setItem("cartItems", JSON.stringify(newFoods))
+    }
+}
+
+export const decreaseFoodCount = (name) => {
+    const foods = getCartItems()
+    if (foods !== null) {
+        const newFoods = foods.map(food => {
+            food.foodName === name && food.count > 1 && food.count--
             return food
         })
         localStorage.setItem("cartItems", JSON.stringify(newFoods))

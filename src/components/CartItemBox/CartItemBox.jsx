@@ -8,7 +8,7 @@ const CartItemBox = () => {
     const [cartItems, setCartItems] = useState(null)
     useEffect(() => {
         setCartItems(getCartItems())
-    }, [])
+    }, [getCartItems()])
 
 
     return (
