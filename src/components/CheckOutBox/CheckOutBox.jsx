@@ -7,6 +7,7 @@ import { calculateOffers, calculateTotalPrice } from "../../utils"
 import Buttons from "../useFull/Buttons/Buttons"
 import { CiUser } from "react-icons/ci";
 import DeleteFood from '../useFull/DeleteFood';
+import Login from '../Login/Login';
 
 
 
@@ -18,6 +19,7 @@ const CheckOutBox = ({ foods, setCartItems }) => {
     const [totalPrice, setTotalPrice] = useState(0)
     const [isLogin, setIsLogin] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [showLogin, setShowLogin] = useState(false)
 
     useEffect(() => {
         if (foods) {
@@ -64,11 +66,18 @@ const CheckOutBox = ({ foods, setCartItems }) => {
                         hoverBg={"var(--green-green-shade-10)"}
                         thin
                         exteraRadius={false}
+                        onClick={() => {
+                            if (!isLogin) setShowLogin(true)
+                        }}
                     />
                 </>
             )}
             {showDeleteModal && (
-                <DeleteFood oneFood={false} setShowDeleteModal={setShowDeleteModal} setCartItems={setCartItems}/>
+                <DeleteFood oneFood={false} setShowDeleteModal={setShowDeleteModal} setCartItems={setCartItems} />
+            )}
+
+            {showLogin && (
+                <Login setShow={setShowLogin} />
             )}
         </div>
     )
