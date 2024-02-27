@@ -21,11 +21,10 @@ const Navbar = () => {
   const location = useLocation()
   const [url, setUrl] = useState("")
   const [showLogin, setShowLogin] = useState(false)
-  const [loginUser, setLoginUser] = useState(false)
   const [isScroll, setIsScroll] = useState(false)
   const [open, setOpen] = useState(false)
 
-  const { showCartNotif, setShowCartNotif } = useContentProvider()
+  const { showCartNotif, setShowCartNotif, isLogin, setIsLogin } = useContentProvider()
 
   useEffect(() => {
     setUrl(location.pathname)
@@ -141,14 +140,14 @@ const Navbar = () => {
             <span className={styles.notif}></span>
           )}
         </Tooltip>
-        {!loginUser && (
+        {!isLogin && (
           <Tooltip placement='bottom' title="ورود / ثبت نام" color='var(--green-primary)'>
             <div className={styles.icons} onClick={() => setShowLogin(true)}>
               <CiUser size={24} color='var(--green-primary)' />
             </div>
           </Tooltip>
         )}
-        {loginUser && (
+        {isLogin && (
           <Dropdown menu={{ items: userMenuItem }}>
             <Button style={{
               width: "auto",
