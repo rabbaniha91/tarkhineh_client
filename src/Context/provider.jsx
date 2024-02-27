@@ -6,12 +6,17 @@ const stateContext = createContext()
 export const ContextProvider = ({ children }) => {
     const [showCartNotif, setShowCartNotif] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
+    const [confirmCode, setConfirmCode] = useState([])
 
     return (
         <stateContext.Provider
             value={{
                 setShowCartNotif,
-                showCartNotif
+                showCartNotif,
+                isLogin,
+                setIsLogin,
+                confirmCode,
+                setConfirmCode
             }}
         >
             {children}

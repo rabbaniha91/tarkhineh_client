@@ -9,13 +9,23 @@ import styles from "./styles.module.css"
 import GetCodeInputs from './GetCodeInputs';
 import Error from '../useFull/Error/Error';
 import Timer from '../useFull/Timer/Timer';
-const phoneRegex = /^09\d{9}/
+import ConfirmCode from '../ConfirmCode';
+import { useContentProvider } from '../../Context/provider';
+import NotValidCode from '../NotValidCode';
 
+
+
+const phoneRegex = /^09\d{9}/
 
 const Login = ({ setShow }) => {
     const [confirmState, setConfirmState] = useState(false)
-    const [confirmCode, setConfirmCode] = useState([])
     const [persianMobileNumber, setPersianMobileNumber] = useState("")
+    const [confirmInputCode, setConfirmInputCode] = useState([])
+    const [sendCode, setSendCode] = useState(false)
+    const [notValidCode, setNotValidCode] = useState(false)
+
+    const { confirmCode, setConfirmCode } = useContentProvider()
+
 
     const valdate = Yup.object({
         mobileNumber: Yup.string()
@@ -31,8 +41,18 @@ const Login = ({ setShow }) => {
         onSubmit: (values) => {
             if (!confirmState) {
                 setConfirmState(true)
+                setSendCode(true)
             } else {
-                console.log("send")
+                const match = confirmInputCode.join("").match(confirmCode.join(""))
+                if (match === null) {
+                    setNotValidCode(true)
+                    setTimeout(() => {
+                        setNotValidCode(false)
+                    }, 3000)
+                }else{
+                    
+                }
+
             }
         }
     })
@@ -49,7 +69,7 @@ const Login = ({ setShow }) => {
 
     }, [formik.values.mobileNumber])
 
-   
+
 
 
     return (
@@ -89,7 +109,7 @@ const Login = ({ setShow }) => {
                         </>
                     ) : (
                         <>
-                            <GetCodeInputs setConfirmCode={setConfirmCode} error={false} />
+                            <GetCodeInputs setConfirmCode={setConfirmInputCode} error={false} />
 
                             <Timer />
 
@@ -102,11 +122,19 @@ const Login = ({ setShow }) => {
                         color="var(--neutral-white)"
                         hoverBg="var(--green-green-shade-10)"
                         exteraRadius={false}
-                        disabled={!confirmState ? !formik.dirty || formik.errors.mobileNumber : confirmCode.length < 5}
+                        disabled={!confirmState ? !formik.dirty || formik.errors.mobileNumber : confirmInputCode.length < 5}
                         type={"submit"}
                     />
                 </form>
+                {notValidCode && (
+                    <div style={{ position: "absolute", bottom: "10%", left: "50%", transform: "translateX(-50%)" }}>
+                        <NotValidCode setNotValidCode={setNotValidCode} />
+                    </div>
+                )}
             </div>
+            {sendCode && (
+                <ConfirmCode setSendCode={setSendCode} />
+            )}
         </div>
     )
 }

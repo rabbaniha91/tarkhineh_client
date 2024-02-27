@@ -1,0 +1,50 @@
+.container {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--green-green-tint-1);
+  border-radius: 4px;
+  padding: 12px 24px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 99999;
+  gap: 12px;
+  animation: enter 0.1s ease-out forwards;
+}
+
+.close {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: var(--state-error-error);
+}
+
+.container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  font-size: var(--h6-desktop);
+  font-weight: bold;
+}
+
+
+@keyframes enter {
+  0% {
+    top: -10%;
+  }
+
+  100% {
+    top: 2%;
+  }
+}
