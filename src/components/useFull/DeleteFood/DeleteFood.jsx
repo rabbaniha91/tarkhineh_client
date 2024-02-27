@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./styles.module.css"
 import { IoIosClose } from 'react-icons/io'
 import Buttons from '../Buttons/Buttons'
-import { deleteFoodFromCart, getCartItems } from "../../../utils"
+import { deleteFoodFromCart, getCartItems, clearCartItems } from "../../../utils"
 
 const DeleteFood = ({ foodName, setShowDeleteModal, oneFood, setCartItems }) => {
     return (
@@ -34,10 +34,15 @@ const DeleteFood = ({ foodName, setShowDeleteModal, oneFood, setCartItems }) => 
                         exteraRadius={false}
                         thin
                         onClick={() => {
-                            deleteFoodFromCart(foodName)
+                            if (oneFood) {
+                                deleteFoodFromCart(foodName)
+                                const newCartItems = getCartItems()
+                                setCartItems(newCartItems)
+                            } else {
+                                clearCartItems()
+                                setCartItems(null)
+                            }
                             setShowDeleteModal(false)
-                            const newCartItems = getCartItems()
-                            setCartItems(newCartItems)
                         }}
                     />
                 </div>

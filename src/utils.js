@@ -83,3 +83,8 @@ export const calculateTotalPrice = (array) => {
 
     return totalPrice
 }
+
+
+export const clearCartItems = () => {
+    localStorage.clear("cartItems")
+}

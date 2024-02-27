@@ -41,7 +41,7 @@ const CartItemBox = () => {
                         ))}
                     </div>
                 ) : ""}
-                <CheckOutBox foods={cartItems} />
+                <CheckOutBox foods={cartItems} setCartItems={setCartItems}/>
             </div>
             {cartItems !== null && !isSM && (
                 <div className={styles.mobile_container}>
