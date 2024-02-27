@@ -20,11 +20,10 @@ const Navbar = () => {
   const { isXMD, isSM } = useScreenSize()
   const location = useLocation()
   const [url, setUrl] = useState("")
-  const [showLogin, setShowLogin] = useState(false)
   const [isScroll, setIsScroll] = useState(false)
   const [open, setOpen] = useState(false)
 
-  const { showCartNotif, setShowCartNotif, isLogin, setIsLogin } = useContentProvider()
+  const { showCartNotif, setShowCartNotif, isLogin, setIsLogin, showLogin, setShowLogin } = useContentProvider()
 
   useEffect(() => {
     setUrl(location.pathname)

@@ -19,9 +19,8 @@ const CheckOutBox = ({ foods, setCartItems }) => {
     const [offers, setOffers] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [showLogin, setShowLogin] = useState(false)
 
-    const { isLogin, setIsLogin } = useContentProvider()
+    const { isLogin, setIsLogin, showLogin, setShowLogin } = useContentProvider()
 
     useEffect(() => {
         if (foods) {

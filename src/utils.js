@@ -88,3 +88,11 @@ export const calculateTotalPrice = (array) => {
 export const clearCartItems = () => {
     localStorage.clear("cartItems")
 }
+
+export const setLoginUser = () => {
+    localStorage.setItem("userLogin", JSON.stringify(true))
+}
+
+export const getLoginUser = () => {
+    return JSON.parse(localStorage.getItem("userLogin"))
+}

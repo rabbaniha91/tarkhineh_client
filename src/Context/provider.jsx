@@ -4,9 +4,13 @@ const stateContext = createContext()
 
 
 export const ContextProvider = ({ children }) => {
+
+    
     const [showCartNotif, setShowCartNotif] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
     const [confirmCode, setConfirmCode] = useState([])
+    const [showLogin, setShowLogin] = useState(false)
+
 
     return (
         <stateContext.Provider
@@ -16,7 +20,9 @@ export const ContextProvider = ({ children }) => {
                 isLogin,
                 setIsLogin,
                 confirmCode,
-                setConfirmCode
+                setConfirmCode,
+                showLogin,
+                setShowLogin
             }}
         >
             {children}

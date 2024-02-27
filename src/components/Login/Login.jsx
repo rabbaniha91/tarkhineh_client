@@ -12,6 +12,7 @@ import Timer from '../useFull/Timer/Timer';
 import ConfirmCode from '../ConfirmCode';
 import { useContentProvider } from '../../Context/provider';
 import NotValidCode from '../NotValidCode';
+import { setLoginUser } from '../../utils';
 
 
 
@@ -24,7 +25,7 @@ const Login = ({ setShow }) => {
     const [sendCode, setSendCode] = useState(false)
     const [notValidCode, setNotValidCode] = useState(false)
 
-    const { confirmCode, setConfirmCode } = useContentProvider()
+    const { confirmCode, setConfirmCode, setIsLogin, setShowLogin } = useContentProvider()
 
 
     const valdate = Yup.object({
@@ -49,8 +50,10 @@ const Login = ({ setShow }) => {
                     setTimeout(() => {
                         setNotValidCode(false)
                     }, 3000)
-                }else{
-                    
+                } else {
+                    setLoginUser()
+                    setIsLogin(true)
+                    setShowLogin(false)
                 }
 
             }
