@@ -8,6 +8,7 @@ import Buttons from "../useFull/Buttons/Buttons"
 import { CiUser } from "react-icons/ci";
 import DeleteFood from '../useFull/DeleteFood';
 import Login from '../Login/Login';
+import { useContentProvider } from '../../Context/provider';
 
 
 
@@ -17,9 +18,10 @@ import Login from '../Login/Login';
 const CheckOutBox = ({ foods, setCartItems }) => {
     const [offers, setOffers] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
-    const [isLogin, setIsLogin] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
+
+    const { isLogin, setIsLogin } = useContentProvider()
 
     useEffect(() => {
         if (foods) {

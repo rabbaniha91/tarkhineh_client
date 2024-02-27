@@ -5,6 +5,7 @@ const stateContext = createContext()
 
 export const ContextProvider = ({ children }) => {
     const [showCartNotif, setShowCartNotif] = useState(false)
+    const [isLogin, setIsLogin] = useState(false)
 
     return (
         <stateContext.Provider
