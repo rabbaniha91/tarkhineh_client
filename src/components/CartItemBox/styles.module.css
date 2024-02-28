@@ -1,18 +1,3 @@
-.container {
-  margin: 24px auto 48px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 1224px;
-  gap: 24px;
-}
-
-/* empty cart */
-
-
-
-/* fill cart */
-
 .food_container {
   padding: 24px;
   display: flex;
