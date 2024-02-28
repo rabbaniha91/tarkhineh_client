@@ -1,0 +1,12 @@
+.full_cart {
+  margin: 24px auto 48px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1224px;
+  gap: 24px;
+}
+
+.full_cart_mobile{
+    flex-direction: column;
+}

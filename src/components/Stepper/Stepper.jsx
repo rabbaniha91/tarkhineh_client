@@ -8,9 +8,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { GoTrash } from "react-icons/go";
 
 
-const Stepper = () => {
+const Stepper = ({shoppingState}) => {
     const { isSM } = useScreenSize()
-    const [shoppingState, setShoppingState] = useState(1)
 
     return (
         <div className={`${styles.container} ${!isSM && styles.mobile_container}`}>

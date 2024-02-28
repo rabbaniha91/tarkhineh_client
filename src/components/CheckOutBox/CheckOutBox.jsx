@@ -16,7 +16,7 @@ import useScreenSize from '../../hooks/useScreenSize';
 
 
 
-const CheckOutBox = ({ foods, setCartItems, buttonText }) => {
+const CheckOutBox = ({ foods, setCartItems, shoppingState }) => {
     const { isSM } = useScreenSize()
 
     const [offers, setOffers] = useState(0)
@@ -63,7 +63,12 @@ const CheckOutBox = ({ foods, setCartItems, buttonText }) => {
                     </div>
                     <Buttons
                         width={"100%"}
-                        text={isLogin ? buttonText : "ورود / ثبت نام"}
+                        text={!isLogin
+                            ? "ورود / ثبت نام"
+                            : isLogin && shoppingState === 1
+                                ? "تکمیل اطلاعات"
+                                : isLogin && shoppingState === 2
+                                    ? "" : isLogin && shoppingState === 3 ? "" : ""}
                         icon={!isLogin ? <CiUser size={34} /> : ""}
                         bgColor={"var(--green-primary)"}
                         color={"var(--neutral-white)"}
