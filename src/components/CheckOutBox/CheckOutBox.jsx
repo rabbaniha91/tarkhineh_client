@@ -16,7 +16,7 @@ import useScreenSize from '../../hooks/useScreenSize';
 
 
 
-const CheckOutBox = ({ foods, setCartItems, shoppingState }) => {
+const CheckOutBox = ({ foods, setCartItems, shoppingState, setShoppingState }) => {
     const { isSM } = useScreenSize()
 
     const [offers, setOffers] = useState(0)
@@ -68,7 +68,7 @@ const CheckOutBox = ({ foods, setCartItems, shoppingState }) => {
                             : isLogin && shoppingState === 1
                                 ? "تکمیل اطلاعات"
                                 : isLogin && shoppingState === 2
-                                    ? "" : isLogin && shoppingState === 3 ? "" : ""}
+                                    ? "ثبت سفارش" : isLogin && shoppingState === 3 ? "" : ""}
                         icon={!isLogin ? <CiUser size={34} /> : ""}
                         bgColor={"var(--green-primary)"}
                         color={"var(--neutral-white)"}
@@ -77,6 +77,7 @@ const CheckOutBox = ({ foods, setCartItems, shoppingState }) => {
                         exteraRadius={false}
                         onClick={() => {
                             if (!isLogin) setShowLogin(true)
+                            else setShoppingState(prev => prev + 1)
                         }}
                     />
                 </>

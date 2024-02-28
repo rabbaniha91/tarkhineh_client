@@ -27,7 +27,12 @@ const Buystatas = () => {
             ) : (
                 <div className={`${styles.full_cart} ${!isSM && styles.full_cart_mobile}`}>
                     <CartItemBox cartItems={cartItems} setCartItems={setCartItems} />
-                    <CheckOutBox foods={cartItems} setCartItems={setCartItems} shoppingState={shoppingState} />
+                    <CheckOutBox
+                        foods={cartItems}
+                        setCartItems={setCartItems}
+                        shoppingState={shoppingState}
+                        setShoppingState={setShoppingState}
+                    />
                 </div>
             )}
         </>
