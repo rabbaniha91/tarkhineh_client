@@ -134,10 +134,11 @@ const Navbar = () => {
         <Tooltip style={{ position: "relative" }} placement='bottom' title="سبد خرید" color='var(--green-primary)'>
           <Link to={"/cart"} className={`${styles.icons} ${url === "/cart" && styles.active_icon}`}>
             <CiShoppingCart size={24} color={url === "/cart" ? "var(--neutral-white)" : 'var(--green-primary)'} />
+            {showCartNotif && (
+              <span className={styles.notif}></span>
+            )}
           </Link>
-          {showCartNotif && (
-            <span className={styles.notif}></span>
-          )}
+
         </Tooltip>
         {!isLogin && (
           <Tooltip placement='bottom' title="ورود / ثبت نام" color='var(--green-primary)'>

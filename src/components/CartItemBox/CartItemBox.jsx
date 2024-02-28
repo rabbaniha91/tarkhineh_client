@@ -13,7 +13,6 @@ const CartItemBox = () => {
     const { isSM } = useScreenSize()
     const [cartItems, setCartItems] = useState(null)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [deleteItems, setDeleteItems] = useState(0)
     const [index, setIndex] = useState(null)
 
     useEffect(() => {
