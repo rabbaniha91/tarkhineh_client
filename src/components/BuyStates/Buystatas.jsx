@@ -10,7 +10,7 @@ import styles from "./styles.module.css"
 import CompleteInformarion from '../CompleteInformation'
 
 const Buystatas = () => {
-    const { isSM } = useScreenSize()
+    const { isLG } = useScreenSize()
 
     const [cartItems, setCartItems] = useState(null)
     const [shoppingState, setShoppingState] = useState(1)
@@ -26,7 +26,7 @@ const Buystatas = () => {
             {cartItems === null ? (
                 <EmptyCart />
             ) : (
-                <div className={`${styles.full_cart} ${!isSM && styles.full_cart_mobile}`}>
+                <div className={`${styles.full_cart} ${!isLG && styles.full_cart_mobile}`}>
                     {shoppingState === 1 && (
                         <>
                             <CartItemBox cartItems={cartItems} setCartItems={setCartItems} />
