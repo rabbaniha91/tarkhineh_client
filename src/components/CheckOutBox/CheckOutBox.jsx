@@ -9,6 +9,7 @@ import { CiUser } from "react-icons/ci";
 import DeleteFood from '../useFull/DeleteFood';
 import Login from '../Login/Login';
 import { useContentProvider } from '../../Context/provider';
+import useScreenSize from '../../hooks/useScreenSize';
 
 
 
@@ -16,6 +17,8 @@ import { useContentProvider } from '../../Context/provider';
 
 
 const CheckOutBox = ({ foods, setCartItems }) => {
+    const { isSM } = useScreenSize()
+
     const [offers, setOffers] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -30,7 +33,7 @@ const CheckOutBox = ({ foods, setCartItems }) => {
     }, [foods])
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${!isSM && styles.mobile_container}`}>
             {foods !== null && (
                 <>
                     <div className={styles.rows}>
