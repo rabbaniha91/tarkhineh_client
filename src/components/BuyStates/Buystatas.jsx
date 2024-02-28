@@ -7,6 +7,7 @@ import CartItemBox from '../CartItemBox'
 import CheckOutBox from '../CheckOutBox'
 
 import styles from "./styles.module.css"
+import CompleteInformarion from '../CompleteInformation'
 
 const Buystatas = () => {
     const { isSM } = useScreenSize()
@@ -26,13 +27,29 @@ const Buystatas = () => {
                 <EmptyCart />
             ) : (
                 <div className={`${styles.full_cart} ${!isSM && styles.full_cart_mobile}`}>
-                    <CartItemBox cartItems={cartItems} setCartItems={setCartItems} />
-                    <CheckOutBox
-                        foods={cartItems}
-                        setCartItems={setCartItems}
-                        shoppingState={shoppingState}
-                        setShoppingState={setShoppingState}
-                    />
+                    {shoppingState === 1 && (
+                        <>
+                            <CartItemBox cartItems={cartItems} setCartItems={setCartItems} />
+                            <CheckOutBox
+                                foods={cartItems}
+                                setCartItems={setCartItems}
+                                shoppingState={shoppingState}
+                                setShoppingState={setShoppingState}
+                            />
+                        </>
+                    )}
+
+                    {shoppingState === 2 && (
+                        <>
+                            <CompleteInformarion />
+                            <CheckOutBox
+                                foods={cartItems}
+                                setCartItems={setCartItems}
+                                shoppingState={shoppingState}
+                                setShoppingState={setShoppingState}
+                            />
+                        </>
+                    )}
                 </div>
             )}
         </>
