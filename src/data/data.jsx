@@ -9,6 +9,11 @@ import { PiGitBranchThin } from "react-icons/pi";
 import { MdRoundaboutLeft } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { setlogoutUser } from "../utils";
+import { useContentProvider } from "../Context/provider"
+import { Button, Dropdown, Space } from "antd";
+import { IoIosArrowDown } from "react-icons/io";
+
 
 
 export const carouselImages = [
@@ -65,7 +70,7 @@ export const branchesitem = [
 export const menuItem = [
     {
         label: (
-            <Link to={"/menu"} state={1} style={{ width: "144px", display:"inline-block" }}>
+            <Link to={"/menu"} state={1} style={{ width: "144px", display: "inline-block" }}>
                 غذای اصلی
             </Link>
         ),
@@ -106,110 +111,137 @@ export const menuItem = [
     },
 
 ];
-export const userMenuItem = [
-    {
-        label: (
 
-            <div style={{
-                width: "144px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "4px"
+
+
+export const UserMneu = () => {
+    const { setIsLogin } = useContentProvider()
+    const userMenuItem = [
+        {
+            label: (
+
+                <div style={{
+                    width: "144px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: "4px"
+                }}>
+                    <CiUser size={24} />
+                    <span>پروفایل</span>
+
+                </div>
+            ),
+            key: '0',
+        },
+        {
+            type: 'divider',
+        },
+        {
+            label: (
+
+                <div style={{
+                    width: "144px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: "4px"
+                }}>
+                    <CiWallet size={24} />
+                    <span>پیگیری سفارش</span>
+
+                </div>
+            ),
+            key: '1',
+        },
+        {
+            type: 'divider',
+        },
+        {
+            label: (
+
+                <div style={{
+                    width: "144px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: "4px"
+                }}>
+                    <CiHeart size={24} />
+                    <span>علاقه مندی ها</span>
+
+                </div>
+            ),
+            key: '2',
+        },
+        {
+            type: 'divider',
+        },
+        {
+            label: (
+
+                <div style={{
+                    width: "144px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: "4px"
+                }}>
+                    <CiLocationOn size={24} />
+                    <span>آدرس های من</span>
+
+                </div>
+            ),
+            key: '3',
+        },
+        {
+            type: 'divider',
+        },
+        {
+            label: (
+
+                <div
+                    onClick={() => {
+                        setlogoutUser()
+                        setIsLogin(false)
+                    }}
+                    style={{
+                        width: "144px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        gap: "4px"
+                    }}>
+                    <CiLogout size={24} />
+                    <span>خروج از حساب</span>
+
+                </div>
+            ),
+            key: '4',
+        },
+        {
+            type: 'divider',
+        },
+
+
+    ];
+
+    return (
+        <Dropdown menu={{ items: userMenuItem }}>
+            <Button style={{
+                width: "auto",
+                backgroundColor: "var(--green-green-tint-1)",
+                border: "none"
             }}>
-                <CiUser size={24} />
-                <span>پروفایل</span>
+                <Space>
+                    <CiUser size={24} color='var(--green-primary)' />
+                    <IoIosArrowDown color='var(--green-primary)' />
+                </Space>
+            </Button>
+        </Dropdown>
+    )
+}
 
-            </div>
-        ),
-        key: '0',
-    },
-    {
-        type: 'divider',
-    },
-    {
-        label: (
-
-            <div style={{
-                width: "144px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "4px"
-            }}>
-                <CiWallet size={24} />
-                <span>پیگیری سفارش</span>
-
-            </div>
-        ),
-        key: '1',
-    },
-    {
-        type: 'divider',
-    },
-    {
-        label: (
-
-            <div style={{
-                width: "144px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "4px"
-            }}>
-                <CiHeart size={24} />
-                <span>علاقه مندی ها</span>
-
-            </div>
-        ),
-        key: '2',
-    },
-    {
-        type: 'divider',
-    },
-    {
-        label: (
-
-            <div style={{
-                width: "144px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "4px"
-            }}>
-                <CiLocationOn size={24} />
-                <span>آدرس های من</span>
-
-            </div>
-        ),
-        key: '3',
-    },
-    {
-        type: 'divider',
-    },
-    {
-        label: (
-
-            <div style={{
-                width: "144px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "4px"
-            }}>
-                <CiLogout size={24} />
-                <span>خروج از حساب</span>
-
-            </div>
-        ),
-        key: '4',
-    },
-    {
-        type: 'divider',
-    },
-
-
-];
 
 function getItem(label, key, icon, children, type) {
     return {

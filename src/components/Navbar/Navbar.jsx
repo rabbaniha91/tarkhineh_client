@@ -7,7 +7,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Dropdown, Space, Button } from "antd"
-import { branchesitem, menuItem, userMenuItem } from "../../data/data.jsx"
+import { branchesitem, menuItem, UserMneu } from "../../data/data.jsx"
 import Login from '../Login/Login.jsx'
 import CustomDrawer from '../useFull/Drawer/CustomDrawer.jsx'
 import { checkCartItems } from '../../utils.js'
@@ -147,18 +147,7 @@ const Navbar = () => {
           </Tooltip>
         )}
         {isLogin && (
-          <Dropdown menu={{ items: userMenuItem }}>
-            <Button style={{
-              width: "auto",
-              backgroundColor: "var(--green-green-tint-1)",
-              border: "none"
-            }}>
-              <Space>
-                <CiUser size={24} color='var(--green-primary)' />
-                <IoIosArrowDown color='var(--green-primary)' />
-              </Space>
-            </Button>
-          </Dropdown>
+          <UserMneu />
         )}
       </div>
       {showLogin && (

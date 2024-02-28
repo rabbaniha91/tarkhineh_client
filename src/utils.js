@@ -93,6 +93,10 @@ export const setLoginUser = () => {
     localStorage.setItem("userLogin", JSON.stringify(true))
 }
 
+export const setlogoutUser = () => {
+    localStorage.setItem("userLogin", JSON.stringify(false))
+}
+
 export const getLoginUser = () => {
     return JSON.parse(localStorage.getItem("userLogin"))
 }
