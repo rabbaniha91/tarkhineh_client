@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 const TextInput = React.memo(({
     placeholder, width, name, type, onChange, onBlur,
     value, error, borderColor, outlined, bgColor, dir = "rtl",
-    autoFocus = false, icon
+    autoFocus = false, icon, shadow = false, shadowColor
 }) => {
     const [dirtyInput, setDirtyInput] = useState(false)
     const [focus, setFocus] = useState(false)
@@ -21,7 +21,8 @@ const TextInput = React.memo(({
                     ? "var(--state-error-error)"
                     : dirtyInput && !error
                         ? "var(--state-success-success)"
-                        : borderColor
+                        : borderColor,
+                boxShadow: shadow && `1px 1px 1px 0 ${shadowColor}, -1px -1px 1px 0 ${shadowColor}`
             }}
         >
             <input onInput={(e) => {
