@@ -38,7 +38,7 @@ const CartItemBox = () => {
                                 <FoodCart food={food} key={food.foodName} state={2} setCartItems={setCartItems} />
                             ))}
                         </div>
-                        <CheckOutBox foods={cartItems} setCartItems={setCartItems} />
+                        <CheckOutBox foods={cartItems} setCartItems={setCartItems} buttonText={"تکمیل اطلاعات"}/>
                     </>
 
                 ) : ""}
@@ -101,7 +101,7 @@ const CartItemBox = () => {
                         )}
 
                     </div>
-                    <CheckOutBox foods={cartItems} setCartItems={setCartItems} />
+                    <CheckOutBox foods={cartItems} setCartItems={setCartItems} buttonText={"تکمیل اطلاعات"}/>
                 </>
 
             )}
