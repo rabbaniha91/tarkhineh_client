@@ -19,8 +19,6 @@ const CartItemBox = () => {
         setCartItems(getCartItems())
     }, [getCartItems])
 
-
-
     return (
         <>
             <div

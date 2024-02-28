@@ -63,8 +63,8 @@ const CheckOutBox = ({ foods, setCartItems }) => {
                     </div>
                     <Buttons
                         width={"100%"}
-                        text={isLogin ? "ادامه" : "ورود / ثبت نام"}
-                        icon={<CiUser size={34} />}
+                        text={isLogin ? "تکمیل اطلاعات" : "ورود / ثبت نام"}
+                        icon={!isLogin ? <CiUser size={34} /> : ""}
                         bgColor={"var(--green-primary)"}
                         color={"var(--neutral-white)"}
                         hoverBg={"var(--green-green-shade-10)"}

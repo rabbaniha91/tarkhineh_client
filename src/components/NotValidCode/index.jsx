@@ -7,7 +7,7 @@ const NotValidCode = ({ setNotValidCode }) => {
         <div
             style={{
                 backgroundColor: "var(--state-error-error-extralight)",
-                padding: "12px 24px",
+                padding: "12px 12px",
                 borderRadius: "4px",
                 display: "flex",
                 alignItems: "center",
