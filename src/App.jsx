@@ -29,7 +29,7 @@ function App() {
     <BrowserRouter >
       <Routes >
         <Route path="/" element={<Home />} />
-        <Route path="/branches" element={<Branches />} />
+        <Route path="/branches/:branch" element={<Branches />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<ShoppingCart />} />
       </Routes>

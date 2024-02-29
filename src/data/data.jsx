@@ -26,9 +26,9 @@ export const carouselImages = [
 export const branchesitem = [
     {
         label: (
-            <div style={{ width: "144px" }}>
+            <Link to={"/branches/اکباتان"} state={"اکباتان"} style={{ width: "144px", display: "inline-block" }}>
                 اکباتان
-            </div>
+            </Link>
         ),
         key: '0',
     },
@@ -37,9 +37,9 @@ export const branchesitem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/branches/چالوس"} state={"چالوس"}>
                 چالوس
-            </div>
+            </Link>
         ),
         key: '1',
     },
@@ -48,9 +48,9 @@ export const branchesitem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/branches/اقدسیه"} state={"اقدسیه"}>
                 اقدسیه
-            </div>
+            </Link>
         ),
         key: '2',
     },
@@ -59,9 +59,9 @@ export const branchesitem = [
     },
     {
         label: (
-            <div>
+            <Link to={"/branches/ونک"} state={"ونک"}>
                 ونک
-            </div>
+            </Link>
         ),
         key: '3',
     },
