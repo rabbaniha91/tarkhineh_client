@@ -180,7 +180,7 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0,
+        "offer": 15,
         "count": 1
     },
     {
@@ -193,7 +193,7 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "3",
         "comments": "",
-        "offer": 0,
+        "offer": 14,
         "count": 1
     },
     {
@@ -219,7 +219,7 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0,
+        "offer": 20,
         "count": 1
     },
     {
@@ -232,7 +232,7 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "5",
         "comments": "",
-        "offer": 0,
+        "offer": 10,
         "count": 1
     },
     {
@@ -245,7 +245,7 @@ export const mainFoodData = [
         "subCategory": "غذای غیر ایرانی",
         "score": "4",
         "comments": "",
-        "offer": 0,
+        "offer": 17,
         "count": 1
     },
     {
@@ -271,7 +271,7 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "1",
         "comments": "",
-        "offer": 0,
+        "offer": 13,
         "count": 1
     },
     {
@@ -336,7 +336,7 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "3",
         "comments": "",
-        "offer": 0,
+        "offer": 5,
         "count": 1
     },
     {
@@ -349,7 +349,7 @@ export const mainFoodData = [
         "subCategory": "پیتزا",
         "score": "1",
         "comments": "",
-        "offer": 0,
+        "offer": 15,
         "count": 1
     },
     {
@@ -375,7 +375,7 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "5",
         "comments": "",
-        "offer": 0,
+        "offer": 12,
         "count": 1
     },
     {
@@ -414,7 +414,7 @@ export const mainFoodData = [
         "subCategory": "ساندویچ",
         "score": "3",
         "comments": "",
-        "offer": 0,
+        "offer": 10,
         "count": 1
     }
 ]
