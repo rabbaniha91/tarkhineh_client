@@ -12,6 +12,8 @@
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease-in;
+  text-decoration: none;
+  color: var(--neutral-black);
 }
 
 .container img {
