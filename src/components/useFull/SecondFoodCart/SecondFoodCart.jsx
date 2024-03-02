@@ -22,7 +22,7 @@ const SecondFoodCart = ({ food }) => {
                 </div>
                 <div>
                     {food?.offer > 0 && (
-                        <span>
+                        <span style={{alignSelf:"flex-end"}}>
                             <span className={styles.main_price}>{parseInt(food?.price).toLocaleString("fa")}</span>
                             <span className={styles.offer}>%{food?.offer.toLocaleString("fa")}</span>
                         </span>
