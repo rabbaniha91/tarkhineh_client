@@ -5,13 +5,18 @@ import SliderSwiper from '../components/SliderSwiper'
 import { mainFoodData } from "../data/foodData"
 import Buttons from '../components/useFull/Buttons/Buttons'
 import { IoMdClipboard } from "react-icons/io";
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import BranchesDetails from '../components/BranchesDetails'
 
 const Branches = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [specialOffer, setSpecialOffer] = useState(null)
   const [popularFoods, setPopularFoods] = useState(null)
   const [nonPersianFoods, setNonPersianFoods] = useState(null)
+  const [branch, setBranch] = useState(null)
+
+
   useEffect(() => {
     setSpecialOffer(mainFoodData.filter(food => {
       return food.offer > 0
@@ -24,7 +29,12 @@ const Branches = () => {
     setNonPersianFoods(mainFoodData.filter(food => {
       return food.subCategory === "غذای غیر ایرانی"
     }))
+
   }, [])
+
+  useEffect(() => {
+    setBranch(location.state)
+  }, [location.state])
 
 
   return (
@@ -62,6 +72,9 @@ const Branches = () => {
           }}
         />
       </div>
+      {branch !== null && (
+        <BranchesDetails branch={branch} />
+      )}
     </div>
   )
 }

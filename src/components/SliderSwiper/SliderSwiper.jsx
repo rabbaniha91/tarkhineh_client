@@ -29,9 +29,9 @@ const SliderSwiper = ({ title, foods, bgColor }) => {
             <div>
                 <h4>{title}</h4>
                 <swiper-container ref={swiperRef} className="mySwiper" slides-per-view="4"
-                    space-between="10" free-mode="true" >
+                    space-between="0" free-mode="true" >
                     {foods?.map(food => (
-                        <swiper-slide>
+                        <swiper-slide key={food?.foodName}>
                             <SecondFoodCart food={food} />
                         </swiper-slide>
                     ))}
