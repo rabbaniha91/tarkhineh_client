@@ -6,13 +6,14 @@
   gap: 12px;
   border: 1px solid var(--neutral-cbcbcb);
   padding-bottom: 12px;
+  background-color: var(--neutral-white);
 }
 
 .container img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 4px 0 4px;
 }
 
 .container h5 {

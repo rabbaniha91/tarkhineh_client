@@ -6,9 +6,14 @@ import { mainFoodData } from "../data/foodData"
 
 const Branches = () => {
   const [specialOffer, setSpecialOffer] = useState(null)
+  const [popularFoods, setPopularFoods] = useState(null)
   useEffect(() => {
     setSpecialOffer(mainFoodData.filter(food => {
       return food.offer > 0
+    }))
+
+    setPopularFoods(mainFoodData.filter(food => {
+      return food.score >= 4
     }))
   }, [])
 
@@ -18,7 +23,10 @@ const Branches = () => {
       <Navbar />
       <Carousel />
       {specialOffer !== null && (
-        <SliderSwiper title={"پیشنهاد ویژه"} foods={specialOffer} bgColor={"var(--neutral-white)"}/>
+        <SliderSwiper title={"پیشنهاد ویژه"} foods={specialOffer} bgColor={"var(--neutral-white)"} />
+      )}
+      {popularFoods !== null && (
+        <SliderSwiper title={"غذاهای محبوب"} foods={popularFoods} bgColor={"var(--green-primary)"} />
       )}
     </div>
   )
